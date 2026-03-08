@@ -53,7 +53,7 @@ const AdminMarketingGuidePage = () => {
                   className="inline-link"
                   onClick={() => {
                     f7.views.main.router.navigate(
-                      "/?page=registration-requirements",
+                      "/registration-requirements",
                     );
                   }}
                 >
@@ -108,7 +108,7 @@ const AdminMarketingGuidePage = () => {
                   <Link
                     className="inline-link"
                     onClick={() => {
-                      f7.views.main.router.navigate("/?page=campaign");
+                      f7.views.main.router.navigate("/campaign");
                     }}
                   >
                     Campagne
@@ -117,7 +117,7 @@ const AdminMarketingGuidePage = () => {
                   <Link
                     className="inline-link"
                     onClick={() => {
-                      f7.views.main.router.navigate("/?page=campaign-fresh");
+                      f7.views.main.router.navigate("/campaign-fresh");
                     }}
                   >
                     Campagne Fresh
@@ -151,7 +151,7 @@ const AdminMarketingGuidePage = () => {
                   <Link
                     className="inline-link"
                     onClick={() => {
-                      f7.views.main.router.navigate("/?page=admin-profile");
+                      f7.views.main.router.navigate("/admin-profile");
                     }}
                   >
                     admin dashboard

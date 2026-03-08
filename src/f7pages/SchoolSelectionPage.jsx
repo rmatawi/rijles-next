@@ -251,7 +251,7 @@ const SchoolSelectionPage = () => {
                     "Succes!",
                     () => {
                       // Navigate to student dashboard
-                      window.location.href = "/?page=student-dashboard";
+                      window.location.href = "/student-dashboard";
                     }
                   );
                 } else {

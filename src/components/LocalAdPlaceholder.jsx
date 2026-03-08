@@ -113,7 +113,7 @@ const LocalAdPlaceholder = ({
     const adTitle = activeAd.title || finalHeadline;
     const adBody = activeAd.body || finalDescription;
     const adCta = activeAd.cta_label || "Bekijk aanbod";
-    const targetUrl = activeAd.target_url || "/?page=adverteren";
+    const targetUrl = activeAd.target_url || "/adverteren";
 
     return (
       <Card
@@ -225,7 +225,7 @@ const LocalAdPlaceholder = ({
         </div>
       </CardContent>
       <CardFooter>
-        <Button fill color="red" href="/?page=adverteren">
+        <Button fill color="red" href="/adverteren">
           {finalCtaLabel}
         </Button>
       </CardFooter>

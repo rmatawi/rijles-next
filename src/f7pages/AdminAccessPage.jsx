@@ -285,7 +285,7 @@ const AdminAccessPage = () => {
 
       // Wait a moment before redirecting
       setTimeout(() => {
-        f7.views.main.router.navigate("/?page=admin-profile", {
+        f7.views.main.router.navigate("/admin-profile", {
           reloadAll: true,
         });
       }, 1500);

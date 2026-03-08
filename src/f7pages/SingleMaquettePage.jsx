@@ -1190,7 +1190,7 @@ const SingleMaquettePage = () => {
             <div
               className="neu-btn-circle"
               style={{ width: "36px", height: "36px", cursor: "pointer" }}
-              onClick={() => f7.views.main.router.navigate("/?page=maquette")}
+              onClick={() => f7.views.main.router.navigate("/maquette")}
             >
               <Icon f7="arrow_left" style={{ fontSize: "20px" }} />
             </div>
@@ -1202,7 +1202,7 @@ const SingleMaquettePage = () => {
         <Block strong>
           <div style={{ textAlign: "center", padding: "20px" }}>
             <p className="neu-text-secondary">Maquette wordt geladen...</p>
-            <Link href="/?page=maquette" className="neu-text-accent">
+            <Link href="/maquette" className="neu-text-accent">
               Terug naar alle maquettes
             </Link>
           </div>
@@ -1223,7 +1223,7 @@ const SingleMaquettePage = () => {
             <div
               className="neu-btn-circle"
               style={{ width: "36px", height: "36px", cursor: "pointer" }}
-              onClick={() => f7.views.main.router.navigate("/?page=maquette")}
+              onClick={() => f7.views.main.router.navigate("/maquette")}
             >
               <Icon f7="arrow_left" style={{ fontSize: "20px" }} />
             </div>
@@ -1235,7 +1235,7 @@ const SingleMaquettePage = () => {
         <Block strong>
           <div style={{ textAlign: "center", padding: "20px" }}>
             <p className="neu-text-secondary">Maquette niet gevonden</p>
-            <Link href="/?page=maquette" className="neu-text-accent">
+            <Link href="/maquette" className="neu-text-accent">
               Terug naar alle maquettes
             </Link>
           </div>
@@ -1251,7 +1251,7 @@ const SingleMaquettePage = () => {
           <div
             className="neu-btn-circle"
             style={{ width: "36px", height: "36px", cursor: "pointer" }}
-            onClick={() => f7.views.main.router.navigate("/?page=maquette")}
+            onClick={() => f7.views.main.router.navigate("/maquette")}
           >
             <Icon f7="arrow_left" style={{ fontSize: "20px" }} />
           </div>
@@ -1589,7 +1589,7 @@ const SingleMaquettePage = () => {
                   <ReferralCard
                     variant="pink"
                     subtitle="Deel deze app met vrienden en krijg extra dagen gratis toegang! Voor elke vriend die zich aanmeldt, krijg jij meer leertijd."
-                    onClick="/?page=referral"
+                    onClick="/referral"
                     style={{ textAlign: "center" }}
                   />
                 );

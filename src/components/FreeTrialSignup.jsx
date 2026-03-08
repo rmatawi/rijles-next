@@ -319,7 +319,7 @@ const FreeTrialSignup = () => {
           </Button>
 
           <div style={{ marginTop: "12px", textAlign: "center" }}>
-            <Link href="/?page=student-login">
+            <Link href="/student-login">
               Ik heb al een toegangscode
             </Link>
           </div>

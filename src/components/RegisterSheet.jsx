@@ -5,7 +5,7 @@ import { useI18n } from "../i18n/i18n";
 
 const RegisterSheet = ({ profileSections = [], handleCardClick }) => {
   const { t } = useI18n();
-  const studentLoginLink = "/?page=student-login";
+  const studentLoginLink = "/student-login";
 
   // Separate sections by type with safety checks
   const studentSection = profileSections.find(s => s.type === 'student') || profileSections.find(s => s.label === 'Student');

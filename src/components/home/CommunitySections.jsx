@@ -7,7 +7,7 @@ const CommunitySections = ({ handleCardClick }) => {
   const communitySections = [
     {
       label: "Noodcontacten",
-      link: "/?page=emergency",
+      link: "/emergency",
       icon: warning,
       description: "Belangrijke telefoonnummers.",
     },

@@ -7,7 +7,7 @@ import { shortUrlService } from "../services/shortUrlService";
 
 /**
  * Custom hook for detecting and handling short URLs
- * Detects URLs like ?id=abc12345 and redirects to ?page=single-maquette&id={full-uuid}
+ * Detects URLs like ?id=abc12345 and redirects to /single-maquette?id={full-uuid}
  */
 export const useShortUrlHandler = () => {
   useEffect(() => {
@@ -51,9 +51,11 @@ export const useShortUrlHandler = () => {
             // Preserve other parameters like admin_id, ref, etc.
             urlParams.delete("id"); // Remove short ID
             urlParams.delete("school"); // Ensure school is removed
-            urlParams.set("page", "single-maquette");
             urlParams.set("id", actualMaquetteId);
-            const newUrl = `/?${urlParams.toString()}`;
+            const query = urlParams.toString();
+            const newUrl = query
+              ? `/single-maquette?${urlParams.toString()}`
+              : "/single-maquette";
             console.log("[Short URL] Redirecting to:", newUrl);
 
             // Use Framework7 router to navigate

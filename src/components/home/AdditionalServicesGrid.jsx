@@ -7,13 +7,13 @@ const AdditionalServicesGrid = ({ handleCardClick }) => {
   const additionalServices = [
     {
       label: "Auto Services",
-      link: "/?page=services",
+      link: "/services",
       icon: hammer,
       description: "Onderhoud en reparatie.",
     },
     {
       label: "Verzekeringen",
-      link: "/?page=insurance",
+      link: "/insurance",
       icon: shield,
       description: "Vergelijk verzekeringen.",
     },

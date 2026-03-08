@@ -138,7 +138,7 @@ const AdminRequestPage = ({ f7route }) => {
         }
       } catch (error) {
         console.error("Error checking auth:", error);
-        f7.views.main.router.navigate("/?page=auth");
+        f7.views.main.router.navigate("/auth");
       } finally {
         setLoading(false);
       }

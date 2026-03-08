@@ -16,7 +16,7 @@ const TOOL_LINKS = [
   {
     title: "Admin Management",
     description: "Manage admin access and permissions",
-    url: "/?page=admin-management",
+    url: "/admin-management",
     icon: "person_2_fill",
   },
   {

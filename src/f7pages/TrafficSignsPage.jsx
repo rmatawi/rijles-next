@@ -570,7 +570,7 @@ const TrafficSignsPage = () => {
                     <ReferralCard
                       variant="pink"
                       subtitle="Deel deze app met vrienden en krijg extra dagen gratis toegang! Voor elke vriend die zich aanmeldt, krijg jij meer leertijd."
-                      onClick="/?page=referral"
+                      onClick="/referral"
                       style={{ textAlign: "center" }}
                     />
                   );

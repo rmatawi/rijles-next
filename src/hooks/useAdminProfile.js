@@ -139,12 +139,12 @@ const useAdminProfile = () => {
     // Store a key/value in localStorage to indicate admin login attempt
     localStorage.setItem("adminLoginAttempt", "true");
     // Redirect to the auth page for sign in
-    f7.views.main.router.navigate("/?page=auth");
+    f7.views.main.router.navigate("/auth");
   };
 
   const handleSignUp = async () => {
     // Redirect to the auth page for sign up (same page handles both)
-    f7.views.main.router.navigate("/?page=auth");
+    f7.views.main.router.navigate("/auth");
   };
 
   const handleSignOut = async () => {

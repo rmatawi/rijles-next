@@ -13,14 +13,14 @@ const ProfileDashboardSection = ({
   const profileSections = [
     {
       label: "Admin",
-      link: "/?page=admin-profile",
+      link: "/admin-profile",
       icon: construct,
       description:
         "Registreer als admin: • Bewerk Maquettes en Vragen • Voeg studenten toe",
     },
     {
       label: "Student",
-      link: "/?page=student-dashboard",
+      link: "/student-dashboard",
       icon: school,
       description:
         "Registreer als student: • Krijg toegang tot alle Maquettes en Vragen.",

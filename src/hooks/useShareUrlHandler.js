@@ -59,7 +59,13 @@ export const useShareUrlHandler = () => {
             }
           }
 
-          const newUrl = `/?${urlParams.toString()}`;
+          const page = urlParams.get("page");
+          if (page) {
+            urlParams.delete("page");
+          }
+          const pathname = page && page !== "home" ? `/${page}` : "/";
+          const query = urlParams.toString();
+          const newUrl = query ? `${pathname}?${query}` : pathname;
           console.log("[Share URL] Redirecting to:", newUrl);
 
           const performNavigation = () => {

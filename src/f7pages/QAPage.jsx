@@ -621,7 +621,7 @@ const QAPage = () => {
                 <ReferralCard
                   variant="pink"
                   subtitle="Nodig vrienden uit en verdien extra dagen toegang. Deel je referral code en groei je leertijd."
-                  onClick="/?page=referral"
+                  onClick="/referral"
                   style={{ textAlign: "center" }}
                 />
               )}

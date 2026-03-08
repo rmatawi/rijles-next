@@ -35,7 +35,7 @@ const RegistrationBenefitsSheet = () => {
               large
               fill
               style={{ marginTop: "10px" }}
-              href="/?page=admin-profile"
+              href="/admin-profile"
               onClick={() => {
                 // This will be handled by the parent component
               }}
@@ -99,7 +99,7 @@ const RegistrationBenefitsSheet = () => {
               large
               fill
               style={{ marginTop: "10px" }}
-              href="/?page=admin-profile"
+              href="/admin-profile"
               onClick={() => {
                 // This will be handled by the parent component
               }}

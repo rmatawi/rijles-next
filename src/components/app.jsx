@@ -6,7 +6,6 @@ import { HelmetProvider } from "react-helmet-async";
 
 import routes from "../js/routes";
 import store from "../js/store";
-import { isAdmin } from "../js/utils";
 import { MaquetteGroupsProvider } from "../contexts/MaquetteGroupsContext";
 import { AdminStatusProvider } from "../contexts/AdminStatusContext";
 import { DemoStatusProvider } from "../contexts/DemoStatusContext";
@@ -14,7 +13,6 @@ import { StudentStatusProvider } from "../contexts/StudentStatusContext";
 import { MaquetteEventProvider } from "../contexts/MaquetteEventContext";
 import { DataProvider } from "../contexts/DataContext";
 import { pollAdminStatus } from "../utils/adminUtils";
-import { initializeSkinSystem } from '../utils/skinUtils';
 
 import useUrlParams from "../hooks/useUrlParams";
 import useReferralCode from "../hooks/useReferralCode";
@@ -33,11 +31,11 @@ const BROWSER_HISTORY_ROOT = APP_BASE_PATH === "/" ? "" : APP_BASE_PATH.replace(
 const LEGACY_APP_BASE_PATH = "/app";
 
 const PRIVATE_ROUTE_PATHS = new Set([
-  "/auth/",
-  "/student-login/",
-  "/school-selection/",
-  "/profile/",
-  "/student-access-grant/",
+  "/auth",
+  "/student-login",
+  "/school-selection",
+  "/profile",
+  "/student-access-grant",
 ]);
 
 const PRIVATE_QUERY_PAGES = new Set([
@@ -58,67 +56,6 @@ const PRIVATE_QUERY_PAGES = new Set([
   "admin-management",
 ]);
 
-const HYBRID_QUERY_PATH_KEYS = new Set([
-  "admin",
-  "admin_id",
-  "adminid",
-  "admin-id",
-  "page",
-  "share",
-]);
-const ADMIN_QUERY_ALIASES = new Set(["admin", "admin_id", "adminid", "admin-id"]);
-const SINGLE_SEGMENT_PAGE_PATHS = new Set([
-  "home",
-  "profile",
-  "maquettebuilder",
-  "maquette",
-  "maquetteedit",
-  "mockexams",
-  "mockexamssequenced",
-  "single-maquette",
-  "qa",
-  "verkeersborden",
-  "rijscholen",
-  "services",
-  "insurance",
-  "emergency",
-  "about",
-  "form",
-  "dynamic-route",
-  "request-and-load",
-  "videos",
-  "referral",
-  "auth",
-  "student-login",
-  "school-selection",
-  "admin-profile",
-  "admin-request",
-  "student-dashboard",
-  "admin-access",
-  "school-access-request",
-  "student-access-request",
-  "student-access-registration",
-  "verify-access",
-  "student-access-grant",
-  "accountmanager",
-  "offline-demo",
-  "pwa-install-demo",
-  "campaign",
-  "campaign-fresh",
-  "superadmin-tools",
-  "admin-management",
-  "registration-requirements",
-  "admin-marketing-guide",
-]);
-
-const decodePathValue = (value) => {
-  try {
-    return decodeURIComponent(value);
-  } catch (error) {
-    return value;
-  }
-};
-
 const stripAppBasePath = (pathname = "/") => {
   if (!pathname) return "/";
   if (pathname === LEGACY_APP_BASE_PATH) return "/";
@@ -128,91 +65,32 @@ const stripAppBasePath = (pathname = "/") => {
   return pathname;
 };
 
-const prefixAppBasePath = (pathAndSearch = "/") => {
-  const normalized = pathAndSearch.startsWith("/") ? pathAndSearch : `/${pathAndSearch}`;
-  return normalized;
-};
-
-const normalizeHybridQueryPathUrl = (pathname = "/", search = "") => {
-  const originalUrl = `${pathname || "/"}${search || ""}`;
-
-  try {
-    const trimmedPath = (pathname || "/").replace(/^\/+|\/+$/g, "");
-    if (!trimmedPath) {
-      return { url: originalUrl, changed: false };
-    }
-
-    const segments = trimmedPath.split("/").filter(Boolean);
-    const [key, ...valueSegments] = segments;
-
-    // Tolerate malformed links like /admin?aliasvalue or /admin_id?aliasvalue
-    if (segments.length === 1 && ADMIN_QUERY_ALIASES.has(key)) {
-      const rawSearch = (search || "").replace(/^\?/, "");
-      if (!rawSearch) {
-        return { url: originalUrl, changed: false };
-      }
-
-      const tokens = rawSearch.split("&");
-      const [firstToken, ...restTokens] = tokens;
-      if (!firstToken || firstToken.includes("=")) {
-        return { url: originalUrl, changed: false };
-      }
-
-      const params = new URLSearchParams(restTokens.filter(Boolean).join("&"));
-      params.set("admin_id", decodePathValue(firstToken));
-      const query = params.toString();
-      return {
-        url: query ? `/?${query}` : "/",
-        changed: true,
-      };
-    }
-
-    // Support direct entry for selected single-segment pages on hosts that
-    // normalize or mishandle trailing slashes before Framework7 routing runs.
-    if (segments.length === 1 && SINGLE_SEGMENT_PAGE_PATHS.has(key)) {
-      const params = new URLSearchParams(search || "");
-      params.set("page", key);
-      const query = params.toString();
-      return {
-        url: query ? `/?${query}` : "/",
-        changed: true,
-      };
-    }
-
-    if (segments.length < 2) {
-      return { url: originalUrl, changed: false };
-    }
-
-    if (!HYBRID_QUERY_PATH_KEYS.has(key) || valueSegments.length === 0) {
-      return { url: originalUrl, changed: false };
-    }
-
-    const params = new URLSearchParams(search || "");
-    const normalizedKey = ADMIN_QUERY_ALIASES.has(key) ? "admin_id" : key;
-    params.set(normalizedKey, decodePathValue(valueSegments.join("/")));
-
-    const query = params.toString();
-    return {
-      url: query ? `/?${query}` : "/",
-      changed: true,
-    };
-  } catch (error) {
-    return { url: originalUrl, changed: false };
-  }
+const normalizePath = (pathname = "/") => {
+  if (!pathname || pathname === "/") return "/";
+  return pathname.replace(/\/+$/, "") || "/";
 };
 
 const getNormalizedLocationUrl = () => {
-  const routePathname = stripAppBasePath(window.location.pathname);
-  const { url, changed } = normalizeHybridQueryPathUrl(
-    routePathname,
-    window.location.search
-  );
+  const pathname = normalizePath(stripAppBasePath(window.location.pathname));
+  const params = new URLSearchParams(window.location.search);
+  const page = params.get("page");
+  let normalizedPath = pathname;
 
-  if (changed) {
-    window.history.replaceState({}, "", prefixAppBasePath(url));
+  // Backward compatibility for old links like /?page=profile
+  if (normalizedPath === "/" && page) {
+    normalizedPath = page === "home" ? "/" : `/${page}`;
+    params.delete("page");
   }
 
-  return url;
+  const query = params.toString();
+  const nextUrl = query ? `${normalizedPath}?${query}` : normalizedPath;
+  const currentUrl = `${pathname}${window.location.search || ""}`;
+
+  if (nextUrl !== currentUrl) {
+    window.history.replaceState({}, "", nextUrl);
+  }
+
+  return nextUrl;
 };
 
 const ensureRobotsMeta = () => {
@@ -231,7 +109,7 @@ const shouldNoIndexRoute = (urlValue) => {
       ? urlValue
       : `${window.location.origin}${urlValue || "/"}`;
     const parsed = new URL(normalizedUrl);
-    const path = stripAppBasePath(parsed.pathname);
+    const path = normalizePath(stripAppBasePath(parsed.pathname));
     const page = parsed.searchParams.get("page");
     return PRIVATE_ROUTE_PATHS.has(path) || Boolean(page && PRIVATE_QUERY_PAGES.has(page));
   } catch (error) {

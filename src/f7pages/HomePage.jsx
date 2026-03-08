@@ -624,7 +624,7 @@ const HomePage = () => {
             localStorage.setItem("accessSchoolId", result.school_id);
             localStorage.setItem("accessToken", accessToken);
             localStorage.setItem("isAccessToken", "true");
-            f7.views.main.router.navigate("/?page=student-access-registration");
+            f7.views.main.router.navigate("/student-access-registration");
           } else {
             f7.dialog.alert(result.message, "Access Token Error");
           }
@@ -644,7 +644,7 @@ const HomePage = () => {
             localStorage.setItem("inviteToken", inviteToken);
             localStorage.setItem("inviteAdminId", result.admin_id);
             localStorage.setItem("isInvite", "true");
-            f7.views.main.router.navigate("/?page=student-login");
+            f7.views.main.router.navigate("/student-login");
           } else {
             f7.dialog.alert(result.message, "Invite Error");
           }
@@ -1113,8 +1113,8 @@ const HomePage = () => {
                   const profilePage = ["approved", "pending"].includes(
                     authUser?.admin_status,
                   )
-                    ? "/?page=admin-profile"
-                    : "/?page=profile";
+                    ? "/admin-profile"
+                    : "/profile";
                   f7.views.main.router.navigate(profilePage);
                 }}
               >
@@ -1268,7 +1268,7 @@ const HomePage = () => {
             background={getThemeGradient()}
             iconColor="#fff"
             iconBackground="rgba(255, 255, 255, 0.25)"
-            onClick="/?page=registration-requirements"
+            onClick="/registration-requirements"
           />
         )}
 
@@ -1281,7 +1281,7 @@ const HomePage = () => {
               background={getThemeGradient()}
               iconColor="#fff"
               iconBackground="rgba(255, 255, 255, 0.25)"
-              onClick="/?page=admin-marketing-guide"
+              onClick="/admin-marketing-guide"
             />
           </div>
         )}
@@ -1411,7 +1411,7 @@ const HomePage = () => {
       {/* Referral Program Card */}
       {isStudent && (
         <div style={{ padding: "0 16px", marginBottom: "16px" }}>
-          <ReferralCard variant="purple" onClick="/?page=referral" />
+          <ReferralCard variant="purple" onClick="/referral" />
         </div>
       )}
 
@@ -1428,7 +1428,7 @@ const HomePage = () => {
             description="Open centrale toegang tot beheerpagina's en tools"
             icon="person"
             background="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
-            onClick="/?page=superadmin-tools"
+            onClick="/superadmin-tools"
           />
         </div>
       )}
@@ -1472,7 +1472,7 @@ const HomePage = () => {
           },
           {
             label: "Admin",
-            link: "/?page=admin-profile",
+            link: "/admin-profile",
             description: "Registreer als admin",
             type: "admin",
           },

@@ -1,5 +1,3 @@
-import React, { createElement } from "react";
-
 import ProfilePage from "../f7pages/ProfilePage.jsx";
 import MaquettePage from "../f7pages/MaquettePage.jsx";
 import QAPage from "../f7pages/QAPage.jsx";
@@ -53,209 +51,197 @@ import AdsDashboardPage from "../f7pages/AdsDashboardPage.jsx";
 import AdsCampaignPage from "../f7pages/AdsCampaignPage.jsx";
 import SuperAdminToolsPage from "../f7pages/SuperAdminToolsPage.jsx";
 
-// Wrapper component for query parameter-based routing
-const QueryParamRouteWrapper = (props) => {
-  const urlParams = new URLSearchParams(props.f7route.query);
-  const pageParam = props.f7route?.params?.page || urlParams.get("page") || "home";
-
-  // Check for invite parameters
-  const isInvite = urlParams.get("invite") === "true";
-  // Map page parameter to component
-  const pageComponents = {
-    home: HomePage,
-    profile: ProfilePage,
-    maquettebuilder: MaquetteBuilder,
-    maquette: MaquettePage,
-    maquetteedit: MaquetteEdit,
-    mockexams: MockExams,
-    mockexamssequenced: MockExamsSequenced,
-    "single-maquette": SingleMaquettePage,
-    qa: QAPage,
-    verkeersborden: TrafficSignsPage,
-    rijscholen: RijscholenPage,
-    services: ServicesPage,
-    insurance: InsurancePage,
-    emergency: EmergencyPage,
-    about: AboutPage,
-    form: FormPage,
-    "dynamic-route": DynamicRoutePage,
-    "request-and-load": RequestAndLoad,
-    videos: YTVideos,
-    referral: ReferralPage,
-
-    auth: AuthPage,
-    "student-login": StudentLoginPage,
-    "school-selection": SchoolSelectionPage,
-    "admin-profile": AdminProfile,
-    "admin-request": AdminRequestPage,
-    "student-dashboard": StudentDashboard,
-    "admin-access": AdminAccessPage,
-    "school-access-request": SchoolAccessRequest,
-    "student-access-request": StudentAccessRequest,
-    "student-access-registration": StudentAccessRegistrationPage,
-    "verify-access": VerifyAccess,
-    "student-access-grant": StudentAccessGrant,
-    accountmanager: AccountManagerPage,
-    "offline-demo": OfflineDemo,
-    "pwa-install-demo": PWAInstallDemo,
-    campaign: CampaignPage,
-    "campaign-fresh": CampaignFreshPage,
-    "admin-management": AdminManagementPage,
-    "registration-requirements": RegistrationRequirementsPage,
-    "admin-marketing-guide": AdminMarketingGuidePage,
-    adverteren: AdvertisePage,
-    "ads-dashboard": AdsDashboardPage,
-    "ads-campaign": AdsCampaignPage,
-    "superadmin-tools": SuperAdminToolsPage,
-  };
-
-  // Show regular pages
-  const Component =
-    pageParam && pageComponents[pageParam]
-      ? pageComponents[pageParam]
-      : NotFoundPage;
-  return createElement(Component, props);
-};
-
-const routes = [
+const baseRoutes = [
   {
     path: "/",
-    component: QueryParamRouteWrapper,
-  },
-  {
-    path: "/page/:page",
-    component: QueryParamRouteWrapper,
-  },
-  {
-    path: "/page/:page/",
-    component: QueryParamRouteWrapper,
-  },
-  {
-    path: "/home/",
     component: HomePage,
   },
   {
-    path: "/profile/",
+    path: "/home",
+    component: HomePage,
+  },
+  {
+    path: "/profile",
     component: ProfilePage,
   },
   {
-    path: "/student-login/",
+    path: "/student-login",
     component: StudentLoginPage,
   },
   {
-    path: "/school-selection/",
+    path: "/school-selection",
     component: SchoolSelectionPage,
   },
   {
-    path: "/maquettebuilder/",
+    path: "/maquettebuilder",
     component: MaquetteBuilder,
   },
   {
-    path: "/rijscholen/",
+    path: "/maquette",
+    component: MaquettePage,
+  },
+  {
+    path: "/qa",
+    component: QAPage,
+  },
+  {
+    path: "/verkeersborden",
+    component: TrafficSignsPage,
+  },
+  {
+    path: "/videos",
+    component: YTVideos,
+  },
+  {
+    path: "/rijscholen",
     component: RijscholenPage,
   },
   {
-    path: "/services/",
+    path: "/services",
     component: ServicesPage,
   },
   {
-    path: "/insurance/",
+    path: "/insurance",
     component: InsurancePage,
   },
   {
-    path: "/mockexams/",
+    path: "/mockexams",
     component: MockExams,
   },
   {
-    path: "/mockexamssequenced/",
+    path: "/mockexamssequenced",
     component: MockExamsSequenced,
   },
   {
-    path: "/emergency/",
+    path: "/emergency",
     component: EmergencyPage,
   },
   {
-    path: "/about/",
-    component: AboutPage,
-  },
-  {
-    path: "/form/",
+    path: "/form",
     component: FormPage,
   },
   {
-    path: "/dynamic-route/",
+    path: "/dynamic-route",
     component: DynamicRoutePage,
   },
   {
-    path: "/request-and-load/",
+    path: "/request-and-load",
     component: RequestAndLoad,
   },
   {
-    path: "/single-maquette/",
+    path: "/single-maquette",
     component: SingleMaquettePage,
   },
   {
-    path: "/about/",
+    path: "/about",
     component: AboutPage,
   },
   {
-    path: "/referral/",
+    path: "/referral",
     component: ReferralPage,
   },
   {
-    path: "/auth/",
+    path: "/auth",
     component: AuthPage,
   },
   {
-    path: "/free-trial-signup/",
+    path: "/admin-profile",
+    component: AdminProfile,
+  },
+  {
+    path: "/admin-request",
+    component: AdminRequestPage,
+  },
+  {
+    path: "/student-dashboard",
+    component: StudentDashboard,
+  },
+  {
+    path: "/admin-access",
+    component: AdminAccessPage,
+  },
+  {
+    path: "/school-access-request",
+    component: SchoolAccessRequest,
+  },
+  {
+    path: "/student-access-request",
+    component: StudentAccessRequest,
+  },
+  {
+    path: "/student-access-registration",
+    component: StudentAccessRegistrationPage,
+  },
+  {
+    path: "/verify-access",
+    component: VerifyAccess,
+  },
+  {
+    path: "/accountmanager",
+    component: AccountManagerPage,
+  },
+  {
+    path: "/offline-demo",
+    component: OfflineDemo,
+  },
+  {
+    path: "/pwa-install-demo",
+    component: PWAInstallDemo,
+  },
+  {
+    path: "/admin-management",
+    component: AdminManagementPage,
+  },
+  {
+    path: "/free-trial-signup",
     component: FreeTrialSignup,
   },
   {
-    path: "/student-access-grant/",
+    path: "/student-access-grant",
     component: StudentAccessGrant,
   },
   {
-    path: "/campaign/",
+    path: "/campaign",
     component: CampaignPage,
   },
   {
-    path: "/campaign-fresh/",
+    path: "/campaign-fresh",
     component: CampaignFreshPage,
   },
   {
-    path: "/stepbystepinfo/",
+    path: "/stepbystepinfo",
     component: StepByStepInfoPage,
   },
   {
-    path: "/skin-settings/",
+    path: "/skin-settings",
     component: SkinSettingsPage,
   },
   {
-    path: "/skin-select/",
+    path: "/skin-select",
     component: SkinSelectPage,
   },
   {
-    path: "/registration-requirements/",
+    path: "/registration-requirements",
     component: RegistrationRequirementsPage,
   },
   {
-    path: "/admin-marketing-guide/",
+    path: "/admin-marketing-guide",
     component: AdminMarketingGuidePage,
   },
   {
-    path: "/adverteren/",
+    path: "/adverteren",
     component: AdvertisePage,
   },
   {
-    path: "/ads-dashboard/",
+    path: "/ads-dashboard",
     component: AdsDashboardPage,
   },
   {
-    path: "/ads-campaign/",
+    path: "/ads-campaign",
     component: AdsCampaignPage,
   },
   {
-    path: "/superadmin-tools/",
+    path: "/superadmin-tools",
     component: SuperAdminToolsPage,
   },
   {
@@ -263,5 +249,13 @@ const routes = [
     component: NotFoundPage,
   },
 ];
+
+const routes = baseRoutes.flatMap((route) => {
+  if (route.path === "/" || route.path === "(.*)" || route.path.endsWith("/")) {
+    return [route];
+  }
+
+  return [route, { ...route, path: `${route.path}/` }];
+});
 
 export default routes;

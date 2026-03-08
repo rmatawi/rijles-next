@@ -553,7 +553,7 @@ const ProfilePage = () => {
             <div style={{ padding: "0 16px", marginBottom: "16px" }}>
               <ReferralCard
                 variant="purple"
-                onClick="/?page=referral"
+                onClick="/referral"
               />
             </div>
           </Block>

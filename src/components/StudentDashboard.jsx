@@ -803,7 +803,7 @@ const StudentDashboard = () => {
               <ReferralCard
                 variant="purple"
                 subtitle="Verwijs vrienden en verdien extra dagen toegang. Deel je code direct via WhatsApp of link."
-                onClick="/?page=referral"
+                onClick="/referral"
               />
             </Block>
           )}

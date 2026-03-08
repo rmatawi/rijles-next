@@ -395,7 +395,7 @@ const ReferralDashboard = ({ studentId, schoolId, schoolName }) => {
                     outline
                     onClick={() =>
                       f7.views.main.router.navigate(
-                        "/?page=referral-leaderboard",
+                        "/referral-leaderboard",
                       )
                     }
                   >
@@ -433,7 +433,7 @@ const ReferralDashboard = ({ studentId, schoolId, schoolName }) => {
                 small
                 outline
                 onClick={() =>
-                  f7.views.main.router.navigate("/?page=referral-rewards")
+                  f7.views.main.router.navigate("/referral-rewards")
                 }
               >
                 View All Rewards

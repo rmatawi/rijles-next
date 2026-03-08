@@ -1544,7 +1544,7 @@ const MaquetteEdit = ({
         </Navbar>
         <Block inset>
           <Card>
-            <Button lerge fill href="/?page=home" iconF7="house" text="Home" />
+            <Button lerge fill href="/home" iconF7="house" text="Home" />
           </Card>
         </Block>
       </Page>

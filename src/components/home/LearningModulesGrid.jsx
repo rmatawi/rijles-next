@@ -18,7 +18,7 @@ const LearningModulesGrid = () => {
   const learningModules = [
     {
       label: "Maquettes",
-      link: "/?page=maquette",
+      link: "/maquette",
       icon: car,
       iconColor: colorScheme[0],
       gradient: createGradient(colorScheme[0], 40, "135deg"),
@@ -26,7 +26,7 @@ const LearningModulesGrid = () => {
     },
     {
       label: "Regels",
-      link: "/?page=qa",
+      link: "/qa",
       icon: helpCircle,
       iconColor: colorScheme[1],
       gradient: createGradient(colorScheme[1], 40, "135deg"),
@@ -34,7 +34,7 @@ const LearningModulesGrid = () => {
     },
     {
       label: "Borden",
-      link: "/?page=verkeersborden",
+      link: "/verkeersborden",
       icon: warning,
       iconColor: colorScheme[2],
       gradient: createGradient(colorScheme[2], 40, "135deg"),
@@ -42,7 +42,7 @@ const LearningModulesGrid = () => {
     },
     {
       label: "Examen",
-      link: "/?page=mockexams",
+      link: "/mockexams",
       icon: school,
       iconColor: colorScheme[3],
       gradient: createGradient(colorScheme[3], 40, "135deg"),
