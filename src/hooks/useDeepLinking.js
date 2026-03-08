@@ -11,8 +11,16 @@ import useAppNavigation from "./useAppNavigation";
  */
 export const useDeepLinking = () => {
   const { navigate } = useAppNavigation();
+  const isBrowser = typeof window !== "undefined" && typeof document !== "undefined";
+  const isStandalone = isBrowser && (
+    window.matchMedia('(display-mode: standalone)').matches ||
+    window.navigator.standalone ||
+    document.referrer.includes('android-app://')
+  );
 
   useEffect(() => {
+    if (!isBrowser) return;
+
     // Handle the initial load - check if opened with URL parameters
     const handleInitialUrl = () => {
       const currentUrl = window.location.href;
@@ -34,10 +42,6 @@ export const useDeepLinking = () => {
     };
 
     // Check if running as standalone PWA
-    const isStandalone = window.matchMedia('(display-mode: standalone)').matches ||
-                        window.navigator.standalone ||
-                        document.referrer.includes('android-app://');
-
     if (isStandalone) {
       handleInitialUrl();
     }
@@ -86,13 +90,11 @@ export const useDeepLinking = () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('navigation-event', handleNavigationEvent);
     };
-  }, [navigate]);
+  }, [navigate, isBrowser, isStandalone]);
 
   return {
     // Could return utility functions if needed
-    isStandalone: window.matchMedia('(display-mode: standalone)').matches ||
-                  window.navigator.standalone ||
-                  document.referrer.includes('android-app://'),
+    isStandalone,
   };
 };
 

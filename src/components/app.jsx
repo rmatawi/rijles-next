@@ -1,6 +1,6 @@
 // components/app.jsx - Refactored version
 import { useEffect, useMemo } from "react";
-import { App, View, f7ready, f7 } from "framework7-react";
+import { App, View, f7ready } from "framework7-react";
 import { usePathname, useSearchParams } from "next/navigation";
 import ReactGA from "react-ga4";
 import { HelmetProvider } from "react-helmet-async";
@@ -27,8 +27,6 @@ import PWAInstallBanner from "./PWAInstallBanner";
 
 const TRACKING_ID = "G-T7NXM7FQX4"; // YOUR_OWN_TRACKING_ID
 ReactGA.initialize(TRACKING_ID);
-const APP_BASE_PATH = "/";
-const BROWSER_HISTORY_ROOT = APP_BASE_PATH === "/" ? "" : APP_BASE_PATH.replace(/\/$/, "");
 const LEGACY_APP_BASE_PATH = "/app";
 
 const PRIVATE_ROUTE_PATHS = new Set([
@@ -135,7 +133,7 @@ const updateRobotsForRoute = (urlValue) => {
 
 const RouteContent = ({ component: Component, activeUrl, f7route }) => {
   if (!Component) return null;
-  return <Component key={activeUrl} f7route={f7route} />;
+  return <Component f7route={f7route} />;
 };
 
 const MyApp = () => {
@@ -227,57 +225,53 @@ const MyApp = () => {
     },
   };
 
-  f7ready((f7Instance) => {
-    // Load and apply saved theme from localStorage
-    const savedTheme = localStorage.getItem("mode");
-    if (savedTheme === "dark") {
-      f7Instance.setDarkMode(true);
-      document.documentElement.classList.add("dark");
-      document.documentElement.classList.remove("light");
-    } else if (savedTheme === "light") {
-      f7Instance.setDarkMode(false);
-      document.documentElement.classList.add("light");
-      document.documentElement.classList.remove("dark");
-    }
+  useEffect(() => {
+    if (typeof window === "undefined") return;
 
-    // Initialize app data when F7 is ready
-    (async () => {
-      try {
-        await store.dispatch("initializeApp");
-
-        // After app initialization completes, initialize admin status
-        // This ensures the auth user is properly loaded before checking admin status
-        await store.dispatch("initializeAdminStatus");
-      } catch (error) {
-        console.error("Error during app/admin initialization:", error);
+    f7ready((f7Instance) => {
+      // Load and apply saved theme from localStorage
+      const savedTheme = localStorage.getItem("mode");
+      if (savedTheme === "dark") {
+        f7Instance.setDarkMode(true);
+        document.documentElement.classList.add("dark");
+        document.documentElement.classList.remove("light");
+      } else if (savedTheme === "light") {
+        f7Instance.setDarkMode(false);
+        document.documentElement.classList.add("light");
+        document.documentElement.classList.remove("dark");
       }
-    })();
 
-    // Start polling for admin status if newAdmin flag is set
-    pollAdminStatus();
+      // Initialize app data when F7 is ready
+      (async () => {
+        try {
+          await store.dispatch("initializeApp");
 
-    // Track page views
-    f7Instance.on("pageAfterIn", (page) => {
-      ReactGA.send({ hitType: "pageview", page: page.url, title: page.name });
-      updateRobotsForRoute(page.url);
+          // After app initialization completes, initialize admin status
+          // This ensures the auth user is properly loaded before checking admin status
+          await store.dispatch("initializeAdminStatus");
+        } catch (error) {
+          console.error("Error during app/admin initialization:", error);
+        }
+      })();
+
+      // Start polling for admin status if newAdmin flag is set
+      pollAdminStatus();
+
+      // Track page views
+      f7Instance.on("pageAfterIn", (page) => {
+        ReactGA.send({ hitType: "pageview", page: page.url, title: page.name });
+        updateRobotsForRoute(page.url);
+      });
+
+      // Debug routing
+      f7Instance.on("routeChange", (newRoute, previousRoute) => {});
     });
-
-    // Debug routing
-    f7Instance.on("routeChange", (newRoute, previousRoute) => {});
-  });
+  }, []);
 
   const activeUrl = useMemo(
     () => getNormalizedUrlFromParts(pathname || "/", searchParams?.toString() || ""),
     [pathname, searchParams]
   );
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const currentUrl = `${normalizePath(stripAppBasePath(window.location.pathname))}${window.location.search || ""}`;
-    if (activeUrl !== currentUrl) {
-      window.history.replaceState({}, "", activeUrl);
-    }
-  }, [activeUrl]);
 
   useEffect(() => {
     updateRobotsForRoute(activeUrl);
@@ -306,10 +300,6 @@ const MyApp = () => {
 
                     <View
                       main
-                      url={activeUrl}
-                      browserHistory={true}
-                      browserHistoryRoot={BROWSER_HISTORY_ROOT}
-                      browserHistorySeparator=""
                     >
                       <RouteContent component={activeRouteComponent} activeUrl={activeUrl} f7route={f7route} />
                     </View>

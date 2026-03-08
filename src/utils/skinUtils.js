@@ -21,6 +21,7 @@ const SKIN_CONFIGS = {
     description: "Modern orange theme"
   }
 };
+const isBrowser = typeof window !== "undefined";
 
 /**
  * Get the currently selected skin from localStorage or default
@@ -28,7 +29,9 @@ const SKIN_CONFIGS = {
  */
 export const getCurrentSkin = () => {
   const envSkin = process.env.VITE_REACT_APP_TITLE?.toLowerCase();
-  const storedSkin = localStorage.getItem("selectedSkin") || envSkin || "default";
+  const storedSkin = isBrowser
+    ? window.localStorage.getItem("selectedSkin") || envSkin || "default"
+    : envSkin || "default";
   if (storedSkin && SKIN_CONFIGS[storedSkin]) {
     return storedSkin;
   }
@@ -56,31 +59,31 @@ export const importSkinComponent = async (componentName, skin = null) => {
   try {
     // Try to import the skin-specific component
     // We use template literals with limited dynamic parts so Vite can statically analyze
-    let module;
+    let loadedModule;
     if (targetSkin === 'amelia') {
-      if (componentName === 'DrivingSchoolCard') module = await import('../components/home/skins/amelia/DrivingSchoolCard.jsx');
-      else if (componentName === 'LearningModulesGrid') module = await import('../components/home/skins/amelia/LearningModulesGrid.jsx');
+      if (componentName === 'DrivingSchoolCard') loadedModule = await import('../components/home/skins/amelia/DrivingSchoolCard.jsx');
+      else if (componentName === 'LearningModulesGrid') loadedModule = await import('../components/home/skins/amelia/LearningModulesGrid.jsx');
     } else if (targetSkin === 'rayer') {
-      if (componentName === 'DrivingSchoolCard') module = await import('../components/home/skins/rayer/DrivingSchoolCard.jsx');
-      else if (componentName === 'LearningModulesGrid') module = await import('../components/home/skins/rayer/LearningModulesGrid.jsx');
+      if (componentName === 'DrivingSchoolCard') loadedModule = await import('../components/home/skins/rayer/DrivingSchoolCard.jsx');
+      else if (componentName === 'LearningModulesGrid') loadedModule = await import('../components/home/skins/rayer/LearningModulesGrid.jsx');
     } else {
-      if (componentName === 'DrivingSchoolCard') module = await import('../components/home/skins/default/DrivingSchoolCard.jsx');
-      else if (componentName === 'LearningModulesGrid') module = await import('../components/home/skins/default/LearningModulesGrid.jsx');
+      if (componentName === 'DrivingSchoolCard') loadedModule = await import('../components/home/skins/default/DrivingSchoolCard.jsx');
+      else if (componentName === 'LearningModulesGrid') loadedModule = await import('../components/home/skins/default/LearningModulesGrid.jsx');
     }
     
-    if (!module) throw new Error("Component not found in skin");
-    return module.default || module;
+    if (!loadedModule) throw new Error("Component not found in skin");
+    return loadedModule.default || loadedModule;
   } catch (error) {
     console.warn(`Failed to load skin-specific component for ${targetSkin}, falling back to default:`, error);
     
     // Fallback to default component
     try {
-      let module;
-      if (componentName === 'DrivingSchoolCard') module = await import('../components/home/DrivingSchoolCard.jsx');
-      else if (componentName === 'LearningModulesGrid') module = await import('../components/home/LearningModulesGrid.jsx');
+      let loadedModule;
+      if (componentName === 'DrivingSchoolCard') loadedModule = await import('../components/home/DrivingSchoolCard.jsx');
+      else if (componentName === 'LearningModulesGrid') loadedModule = await import('../components/home/LearningModulesGrid.jsx');
       
-      if (!module) throw new Error("Default component not found");
-      return module.default || module;
+      if (!loadedModule) throw new Error("Default component not found");
+      return loadedModule.default || loadedModule;
     } catch (fallbackError) {
       console.error(`Failed to load default component:`, fallbackError);
       throw new Error(`Could not load component ${componentName}`);
@@ -142,6 +145,7 @@ export const getSkinStyles = (skin = null) => {
  * Apply current skin colors to CSS custom properties
  */
 export const applyCurrentSkinColors = () => {
+  if (typeof document === "undefined") return;
   const config = getCurrentSkinConfig();
   if (!config) return;
 
@@ -157,17 +161,17 @@ export const applyCurrentSkinColors = () => {
  * Initialize skin system on app start
  */
 export const initializeSkinSystem = () => {
+  if (!isBrowser) return;
+
   // Apply current skin colors
   applyCurrentSkinColors();
-  
-  // Listen for skin changes
-  const originalSetItem = localStorage.setItem;
-  localStorage.setItem = function(key, value) {
-    originalSetItem.apply(this, arguments);
-    if (key === 'selectedSkin') {
+
+  // Update colors when skin changes in another tab/window
+  window.addEventListener("storage", (event) => {
+    if (event.key === "selectedSkin" && event.newValue !== event.oldValue) {
       applyCurrentSkinColors();
     }
-  };
+  });
 };
 
 // Initialize the skin system when this module is imported

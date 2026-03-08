@@ -9,9 +9,21 @@ import { pollAdminStatus } from "../utils/adminUtils";
 
 const useAuthState = () => {
   useEffect(() => {
+    let isMounted = true;
+    const timeoutIds = [];
+    const scheduleIfMounted = (callback, delay) => {
+      const id = setTimeout(async () => {
+        if (!isMounted) return;
+        await callback();
+      }, delay);
+      timeoutIds.push(id);
+      return id;
+    };
+
     // Set up auth state change listener
     const authSubscription = authService.onAuthStateChange(
       async (event, session) => {
+        if (!isMounted) return;
         if (event === "SIGNED_IN" && session?.user) {
           // Initialize admin status FIRST to get admin properties
           let adminProperties = {};
@@ -387,7 +399,7 @@ const useAuthState = () => {
           );
 
           // Add 1 second timeout before continuing
-          setTimeout(async () => {
+          scheduleIfMounted(async () => {
             // Check if this was an admin login attempt
             if (adminLoginAttempt === "true") {
               // Check admin status using the utility function
@@ -652,7 +664,7 @@ const useAuthState = () => {
           // Start polling for admin status if newAdmin flag is set
           // This will be called both on sign-in and on the initial check
           // Use window.f7 which should be available after f7ready is complete
-          setTimeout(() => {
+          scheduleIfMounted(() => {
             pollAdminStatus(); // Now f7 should be available
           }, 100); // Small delay to ensure f7 instance is ready
         } else if (event === "SIGNED_OUT") {
@@ -696,6 +708,8 @@ const useAuthState = () => {
 
     // Clean up subscription on unmount
     return () => {
+      isMounted = false;
+      timeoutIds.forEach((timeoutId) => clearTimeout(timeoutId));
       if (authSubscription?.unsubscribe) {
         authSubscription.unsubscribe();
       }
