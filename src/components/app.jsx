@@ -1,5 +1,5 @@
 // components/app.jsx - Refactored version
-import { useEffect, useMemo } from "react";
+import { Suspense, useEffect, useMemo } from "react";
 import { App, View, f7ready } from "framework7-react";
 import { usePathname, useSearchParams } from "next/navigation";
 import ReactGA from "react-ga4";
@@ -133,7 +133,11 @@ const updateRobotsForRoute = (urlValue) => {
 
 const RouteContent = ({ component: Component, activeUrl, f7route }) => {
   if (!Component) return null;
-  return <Component f7route={f7route} />;
+  return (
+    <Suspense fallback={null}>
+      <Component f7route={f7route} />
+    </Suspense>
+  );
 };
 
 const MyApp = () => {
