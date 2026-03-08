@@ -1,0 +1,28 @@
+// Map category keys to display names for QA section
+export const categoryNames = {
+  documenten_en_bewijzen: "Documenten en Bewijzen",
+  rijbewijs_categorieën_en_leeftijd: "Rijbewijs Categorieën en Leeftijd",
+  rijbevoegdheid_intrekking_en_toezicht:
+    "Rijbevoegdheid, Intrekking en Toezicht",
+  voertuig_uitrusting_verlichting: "Voertuig Uitrusting - Verlichting",
+  voertuig_uitrusting_mechanisch: "Voertuig Uitrusting - Mechanisch",
+  snelheidslimieten: "Snelheidslimieten",
+  alcohol_en_drugs: "Alcohol en Drugs",
+  inhalen_en_naast_elkaar_rijden: "Inhalen en Naast Elkaar Rijden",
+  richting_veranderen_en_signaleren: "Richting Veranderen en Signaleren",
+  geluidssignalen: "Geluidssignalen",
+  achteruitrijden: "Achteruitrijden",
+  verkeersongevallen: "Verkeersongevallen",
+  verkeerslichten: "Verkeerslichten",
+  speciale_voertuigen: "Speciale Voertuigen",
+  rijbaan_gebruik_en_positionering: "Rijbaan Gebruik en Positionering",
+  voetgangers: "Voetgangers",
+  autowegen: "Autowegen",
+  voorang_en_voorsorteren: "Voorrang en Voorsorteren",
+  stoppen_en_stilstaan: "Stoppen en Stilstaan",
+  passagiers_en_vervoer: "Passagiers en Vervoer",
+  verkeerstekens_en_politie: "Verkeerstekens en Politie",
+  definities: "Definities",
+  voertuigafmetingen_en_lading: "Voertuigafmetingen en Lading",
+  autobus_specifieke_eisen: "Autobus Specifieke Eisen",
+};

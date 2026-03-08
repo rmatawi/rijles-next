@@ -1,0 +1,46 @@
+{
+    "rules": [
+        {
+            "id": "A001",
+            "title": "Voorrangsregels op Kruisingen",
+            "description": "<p><strong>Wegen van gelijke rangorde:</strong></p><p>Als beide wegen van gelijke rangorde zijn (beide verhard of beide onverhard, geen verkeersborden):</p><ul><li><strong>Linkskomend verkeer heeft voorrang</strong></li><li>LA (linksaffer) en LV (linksvrij = rechtdoorgaand met niemand links) mogen wegrijden als zij geen voorrang hoeven te verlenen</li><li>Geen LA en geen LV? → Algemeen Verkeersfatsoen (AVF): iemand wenkt, het gewenkte verkeer rijdt weg → LV ontstaat → automatisch wegrijden</li></ul><p><em>Let op: LA en LV rijden samen weg, mits geen botsing.</em></p><p><strong>Verharde vs. Onverharde Weg:</strong></p><ul><li><strong>Verharde weg (asfalt/beton) heeft altijd voorrang</strong> boven onverharde weg (zand)</li><li>Onverharde weg wacht tot verharde weg leeg is</li><li>Herkenning onverharde weg: <code>– – –</code>, <code>· · ·</code>, of open lijn in maquette</li></ul><p><strong>T-Kruising:</strong></p><ul><li><strong>Doorgaande weg heeft altijd voorrang</strong>, zelfs als onverhard</li><li>Zijweg verleent altijd voorrang, ook bij inhalen</li><li>Geldt zonder borden, tenzij anders aangegeven</li></ul>",
+            "priority": "hoog"
+        },
+        {
+            "id": "A002",
+            "title": "Bevoorrechte Weggebruikers",
+            "description": "<p>Bijzonder Verkeer heeft voorrang op alle andere weggebruikers:</p><p><strong>Volgorde:</strong></p><ol><li>PS (Politie met sirene)</li><li>BS (Brandweer)</li><li>AS (Ambulance)</li></ol><p><strong>Belangrijke regels:</strong></p><ul><li>Ze rijden <strong>altijd eerst</strong></li><li><strong>Nooit samen</strong></li><li>Hebben voorrang op alle andere weggebruikers</li><li>Zelfs in smalle inritten (maar inrit moet eerst fysiek vrij zijn bij S)</li></ul>",
+            "priority": "normaal"
+        },
+        {
+            "id": "A003",
+            "title": "Linksaffers en Rechtsaffers",
+            "description": "<p><strong>Linksaffers (LA):</strong></p><ul><li>Mogen wegrijden als zij geen voorrang hoeven te verlenen</li><li><strong>LA tegenover RA:</strong> RA verleent altijd voorrang aan LA</li><li><strong>Twee LA naast elkaar:</strong><ul><li>Langzaamverkeer (fiets/bromfiets) heeft voorrang boven snelverkeer</li><li>Tenzij: beiden gaan naar een weg met rijwielpad → samen weg</li></ul></li></ul><p><strong>Rechtsaffers (RA):</strong></p><ul><li>Verlenen bijna altijd voorrang</li><li><strong>RA tegenover LA:</strong> RA verleent altijd voorrang</li><li><strong>Twee RA naast elkaar:</strong><ul><li>Snelverkeer heeft voorrang boven langzaamverkeer</li><li>Tenzij: beide gaan naar weg met rijwielpad → samen weg</li></ul></li><li><strong>RA naar zijweg:</strong> Verleent altijd voorrang aan tegenliggers, zelfs als zij inhalen</li></ul><p><em>De rechtsaffer is de meest beperkte verkeersdeelnemer.</em></p>",
+            "priority": "normaal"
+        },
+        {
+            "id": "A004",
+            "title": "Rechtdoorgaand Verkeer met Linksvrij (LV)",
+            "description": "<p>Rechtdoorgaand verkeer met linksvrij (LV) heeft voorrang boven afbuigend verkeer.</p><p><strong>Kenmerken:</strong></p><ul><li>Geldt op alle wegtypen (S/B, verhard/onverhard)</li><li>Voorbeeld: auto rechtdoor met niemand links → voorrang boven links- of rechtsaffers</li><li>LV mag wegrijden als geen voorrang hoeft te verlenen</li></ul>",
+            "priority": "normaal"
+        },
+        {
+            "id": "A005",
+            "title": "Verkeersfatsoen (VF)",
+            "description": "<p>Verkeersfatsoen wordt toegepast in specifieke situaties:</p><p><strong>Wanneer verplicht?</strong></p><ul><li>Twee auto's (snelverkeer) die rechtsaf en tegenover elkaar op een smalle weg (S)</li><li>Twee inhalers op een smalle weg</li><li>Rechtsaffer langzaamverkeer naast linksaffer snelverkeer, als RA aan niemand voorrang verleent</li><li>Geen LA en geen LV op kruising van gelijke rangorde</li></ul><p><strong>Hoe werkt het?</strong></p><ol><li>Eén voertuig wenkt</li><li>Het gewenkte voertuig rijdt weg</li><li>Daarna rijdt het wenkende voertuig weg</li></ol><p><em>Beide opties zijn correct – kies er één en blijf consistent.</em></p>",
+            "priority": "normaal"
+        },
+        {
+            "id": "A006",
+            "title": "Inritten en Smalle/Brede Wegen",
+            "description": "<p><strong>Regels voor inritten:</strong></p><ul><li><strong>Inrit S (smal & bezet):</strong> Moet eerst volledig leeg zijn voordat nieuwe voertuigen erin rijden</li><li><strong>Inrit B (breed):</strong> Voertuigen mogen direct inrijden, ook als bezet</li><li><strong>Voertuig in inrit:</strong> Verleent altijd voorrang aan verkeer op de wegen</li><li><strong>Volgorde naar inrit:</strong> Wordt aangegeven; voertuigen blijven niet in de inrit staan</li></ul><p><em>Uitzondering: Rechtsaffer naar zijweg verleent altijd voorrang, zelfs aan inhalers.</em></p><p><strong>Regels op smalle weg (S):</strong></p><ul><li>Geen doorrijden tussen twee stilstaande voertuigen</li><li>Inhaalder verleent voorrang aan niet-inhalende tegenligger</li><li>Twee inhalers tegenover elkaar → verkeersfatsoen (vf)</li></ul><p><strong>Brede weg (B):</strong></p><ul><li>Doorrijden tussen stilstaande voertuigen is toegestaan</li></ul>",
+            "priority": "normaal"
+        },
+        {
+            "id": "A007",
+            "title": "Fietspaden / Rijwielpaden",
+            "description": "<p>Als langzaam- en snelverkeer beide naar een weg met een rijwielpad gaan:</p><ul><li><strong>Twee LA naast elkaar</strong> → samen weg</li><li><strong>Twee RA naast elkaar</strong> → samen weg</li><li>Het maakt niet uit of weg S of B is</li></ul><p><em>Deze regel overschrijft de normale voorrangsregels tussen langzaam- en snelverkeer.</em></p>",
+            "priority": "normaal"
+        }
+    ]
+}

@@ -1,0 +1,86 @@
+| table_name               | column_name               | data_type                | character_maximum_length | is_nullable | column_default     |
+| ------------------------ | ------------------------- | ------------------------ | ------------------------ | ----------- | ------------------ |
+| drv_admins               | id                        | uuid                     | null                     | NO          | uuid_generate_v4() |
+| drv_admins               | email                     | text                     | null                     | NO          | null               |
+| drv_admins               | created_at                | timestamp with time zone | null                     | YES         | now()              |
+| drv_admins               | updated_at                | timestamp with time zone | null                     | YES         | now()              |
+| drv_admins               | name                      | text                     | null                     | YES         | null               |
+| drv_admins               | status                    | text                     | null                     | YES         | null               |
+| drv_admins               | school_ids                | jsonb                    | null                     | YES         | '[]'::jsonb        |
+| drv_admins               | phone                     | text                     | null                     | YES         | null               |
+| drv_admins               | address                   | text                     | null                     | YES         | null               |
+| drv_admins               | emergency_contact_name    | text                     | null                     | YES         | null               |
+| drv_admins               | emergency_contact_phone   | text                     | null                     | YES         | null               |
+| drv_maquettes            | id                        | uuid                     | null                     | NO          | uuid_generate_v4() |
+| drv_maquettes            | driving_school_id         | uuid                     | null                     | YES         | null               |
+| drv_maquettes            | maquette                  | jsonb                    | null                     | YES         | null               |
+| drv_maquettes            | created_at                | timestamp with time zone | null                     | YES         | now()              |
+| drv_maquettes            | updated_at                | timestamp with time zone | null                     | YES         | now()              |
+| drv_maquettes            | name                      | text                     | null                     | YES         | null               |
+| drv_maquettes_groups     | id                        | uuid                     | null                     | NO          | uuid_generate_v4() |
+| drv_maquettes_groups     | driving_school_id         | uuid                     | null                     | YES         | null               |
+| drv_maquettes_groups     | groups                    | jsonb                    | null                     | YES         | null               |
+| drv_maquettes_groups     | created_at                | timestamp with time zone | null                     | YES         | now()              |
+| drv_maquettes_groups     | updated_at                | timestamp with time zone | null                     | YES         | now()              |
+| drv_qa_entries           | id                        | uuid                     | null                     | NO          | uuid_generate_v4() |
+| drv_qa_entries           | driving_school_id         | uuid                     | null                     | YES         | null               |
+| drv_qa_entries           | qa_entry                  | jsonb                    | null                     | YES         | null               |
+| drv_qa_entries           | created_at                | timestamp with time zone | null                     | YES         | now()              |
+| drv_qa_entries           | updated_at                | timestamp with time zone | null                     | YES         | now()              |
+| drv_qa_entries           | name                      | text                     | null                     | YES         | null               |
+| drv_schools              | id                        | uuid                     | null                     | NO          | uuid_generate_v4() |
+| drv_schools              | name                      | text                     | null                     | NO          | null               |
+| drv_schools              | description               | text                     | null                     | YES         | null               |
+| drv_schools              | logo_url                  | text                     | null                     | YES         | null               |
+| drv_schools              | cover_image_url           | text                     | null                     | YES         | null               |
+| drv_schools              | created_at                | timestamp with time zone | null                     | YES         | now()              |
+| drv_schools              | updated_at                | timestamp with time zone | null                     | YES         | now()              |
+| drv_schools              | created_by                | text                     | null                     | YES         | null               |
+| drv_student_progress     | id                        | uuid                     | null                     | NO          | uuid_generate_v4() |
+| drv_student_progress     | student_id                | uuid                     | null                     | YES         | null               |
+| drv_student_progress     | maquette_id               | uuid                     | null                     | YES         | null               |
+| drv_student_progress     | completed                 | boolean                  | null                     | YES         | false              |
+| drv_student_progress     | score                     | integer                  | null                     | YES         | null               |
+| drv_student_progress     | created_at                | timestamp with time zone | null                     | YES         | now()              |
+| drv_student_progress     | updated_at                | timestamp with time zone | null                     | YES         | now()              |
+| drv_student_schools      | id                        | uuid                     | null                     | NO          | uuid_generate_v4() |
+| drv_student_schools      | student_id                | uuid                     | null                     | NO          | null               |
+| drv_student_schools      | school_id                 | uuid                     | null                     | NO          | null               |
+| drv_student_schools      | passcode                  | text                     | null                     | NO          | null               |
+| drv_student_schools      | approved                  | boolean                  | null                     | NO          | false              |
+| drv_student_schools      | archived                  | boolean                  | null                     | NO          | false              |
+| drv_student_schools      | created_at                | timestamp with time zone | null                     | YES         | now()              |
+| drv_student_schools      | updated_at                | timestamp with time zone | null                     | YES         | now()              |
+| drv_students             | id                        | uuid                     | null                     | NO          | uuid_generate_v4() |
+| drv_students             | name                      | text                     | null                     | NO          | null               |
+| drv_students             | email                     | text                     | null                     | YES         | null               |
+| drv_students             | progress                  | jsonb                    | null                     | YES         | null               |
+| drv_students             | created_at                | timestamp with time zone | null                     | YES         | now()              |
+| drv_students             | updated_at                | timestamp with time zone | null                     | YES         | now()              |
+| drv_students             | phone                     | text                     | null                     | YES         | null               |
+| drv_students             | birth_date                | date                     | null                     | YES         | null               |
+| drv_students             | address                   | text                     | null                     | YES         | null               |
+| drv_students             | city                      | text                     | null                     | YES         | null               |
+| drv_students             | postal_code               | text                     | null                     | YES         | null               |
+| drv_students             | emergency_contact_name    | text                     | null                     | YES         | null               |
+| drv_students             | emergency_contact_phone   | text                     | null                     | YES         | null               |
+| drv_students             | license_type              | text                     | null                     | YES         | null               |
+| drv_students             | preferred_language        | text                     | null                     | YES         | 'nl'::text         |
+| drv_students             | last_login                | timestamp with time zone | null                     | YES         | null               |
+| drv_students             | total_lessons_completed   | integer                  | null                     | YES         | 0                  |
+| drv_students             | total_test_attempts       | integer                  | null                     | YES         | 0                  |
+| drv_view_student_schools | student_id                | uuid                     | null                     | YES         | null               |
+| drv_view_student_schools | student_name              | text                     | null                     | YES         | null               |
+| drv_view_student_schools | student_phone             | text                     | null                     | YES         | null               |
+| drv_view_student_schools | student_email             | text                     | null                     | YES         | null               |
+| drv_view_student_schools | student_progress          | jsonb                    | null                     | YES         | null               |
+| drv_view_student_schools | student_created_at        | timestamp with time zone | null                     | YES         | null               |
+| drv_view_student_schools | student_updated_at        | timestamp with time zone | null                     | YES         | null               |
+| drv_view_student_schools | student_school_id         | uuid                     | null                     | YES         | null               |
+| drv_view_student_schools | school_id                 | uuid                     | null                     | YES         | null               |
+| drv_view_student_schools | school_name               | text                     | null                     | YES         | null               |
+| drv_view_student_schools | approved                  | boolean                  | null                     | YES         | null               |
+| drv_view_student_schools | archived                  | boolean                  | null                     | YES         | null               |
+| drv_view_student_schools | passcode                  | text                     | null                     | YES         | null               |
+| drv_view_student_schools | student_school_created_at | timestamp with time zone | null                     | YES         | null               |
+| drv_view_student_schools | student_school_updated_at | timestamp with time zone | null                     | YES         | null               |

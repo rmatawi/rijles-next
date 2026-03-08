@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#212121">
+  <title>%VITE_SEO_TITLE%</title>
+
+  <meta name="keywords" content="%VITE_SEO_KEYWORDS%">
+  <meta name="description" content="%VITE_SEO_DESCRIPTION%">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="%VITE_SEO_CANONICAL_URL%">
+
+  <meta property="og:title" content="%VITE_SEO_OG_TITLE%">
+  <meta property="og:description" content="%VITE_SEO_DESCRIPTION%">
+  <meta property="og:image" content="%VITE_SEO_OG_IMAGE%">
+  <meta property="og:url" content="%VITE_SEO_CANONICAL_URL%">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="%VITE_SEO_OG_TITLE%">
+  <meta name="twitter:description" content="%VITE_SEO_DESCRIPTION%">
+  <meta name="twitter:image" content="%VITE_SEO_OG_IMAGE%">
+
+  <meta name="author" content="%VITE_SEO_BUSINESS_NAME%">
+  <meta name="copyright" content="© 2025 %VITE_SEO_BUSINESS_NAME%">
+  <meta name="google-site-verification" content="%VITE_GOOGLE_SITE_VERIFICATION%" />
+  <meta name="google-adsense-account" content="ca-pub-2987900572749814">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2987900572749814" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json" id="structured-data">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoSchool",
+    "name": "%VITE_SEO_BUSINESS_NAME%",
+    "description": "%VITE_SEO_DESCRIPTION%",
+    "url": "%VITE_SEO_CANONICAL_URL%",
+    "logo": "%VITE_SEO_LOGO_URL%",
+    "image": "%VITE_SEO_OG_IMAGE%",
+    "telephone": "%VITE_SEO_PHONE%",
+    "email": "%VITE_SEO_EMAIL%",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "%VITE_SEO_ADDRESS_LOCALITY%",
+      "addressCountry": "%VITE_SEO_ADDRESS_COUNTRY%"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "%VITE_SEO_ADDRESS_LOCALITY%"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "%VITE_SEO_RATING_VALUE%",
+      "reviewCount": "%VITE_SEO_REVIEW_COUNT%"
+    }
+  }
+  </script>
+
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
+
+  <script>
+    (function () {
+      var raw = "%VITE_COLOR_SCHEME%";
+      var fallback = ["#1A73E8", "#34A853", "#FBBC05", "#EA4335", "#202124"];
+      var colors = (raw || "")
+        .split(",")
+        .map(function (c) { return c.trim(); })
+        .filter(Boolean);
+      while (colors.length < fallback.length) colors.push(fallback[colors.length]);
+
+      var root = document.documentElement;
+      root.style.setProperty("--brand-primary", colors[0]);
+      root.style.setProperty("--brand-accent", colors[1]);
+      root.style.setProperty("--brand-warm", colors[2]);
+      root.style.setProperty("--brand-alert", colors[3]);
+      root.style.setProperty("--brand-dark", colors[4]);
+    })();
+  </script>
+
+  <style>
+    :root {
+      --brand-primary: #1A73E8;
+      --brand-accent: #34A853;
+      --brand-warm: #FBBC05;
+      --brand-alert: #EA4335;
+      --brand-dark: #202124;
+      --app-font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Roboto", "Segoe UI", sans-serif;
+      --bg: #f7f8fb;
+      --surface: #ffffff;
+      --ink: var(--brand-dark);
+      --muted: color-mix(in srgb, var(--brand-dark) 72%, white);
+      --line: color-mix(in srgb, var(--brand-primary) 14%, var(--brand-dark) 10%, white);
+      --accent: var(--brand-primary);
+      --accent-2: var(--brand-warm);
+      --shadow: 0 18px 50px rgba(24, 33, 44, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--app-font);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 10%, color-mix(in srgb, var(--accent-2) 20%, transparent), transparent 40%),
+        radial-gradient(circle at 85% 5%, color-mix(in srgb, var(--brand-accent) 16%, transparent), transparent 40%),
+        linear-gradient(180deg, color-mix(in srgb, var(--brand-primary) 4%, white) 0%, var(--bg) 100%);
+      line-height: 1.5;
+    }
+    #app {
+      opacity: 1;
+      transform: none;
+    }
+    html.js #app {
+      opacity: 0;
+      transform: translateY(10px);
+      transition:
+        opacity 320ms ease,
+        transform 420ms cubic-bezier(.2,.8,.2,1);
+      will-change: opacity, transform;
+    }
+    html.js.app-mounted #app {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .boot-loader {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      background: color-mix(in srgb, white 62%, transparent);
+      backdrop-filter: blur(1px);
+      -webkit-backdrop-filter: blur(1px);
+      opacity: 1;
+      visibility: visible;
+      pointer-events: none;
+      display: none;
+      transition:
+        opacity 260ms ease,
+        visibility 0s linear 260ms;
+    }
+    html.js .boot-loader {
+      display: flex;
+      pointer-events: auto;
+    }
+    html.js.app-mounted .boot-loader {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .boot-loader-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: color-mix(in srgb, var(--surface) 94%, var(--brand-primary) 6%);
+      border: 1px solid color-mix(in srgb, var(--brand-primary) 14%, rgba(0,0,0,0.06));
+      width: fit-content;
+      box-shadow:
+        0 10px 28px rgba(24, 33, 44, 0.08),
+        inset 0 1px 0 rgba(255,255,255,0.75);
+    }
+    .boot-spinner {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid color-mix(in srgb, var(--brand-primary) 16%, transparent);
+      border-top-color: var(--brand-primary);
+      border-right-color: color-mix(in srgb, var(--brand-primary) 70%, white);
+      animation: boot-spin 650ms linear infinite;
+      flex: 0 0 auto;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.45) inset;
+    }
+    .boot-loader-text {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: color-mix(in srgb, var(--brand-dark) 78%, var(--brand-primary));
+      white-space: nowrap;
+    }
+    @keyframes boot-spin {
+      to { transform: rotate(360deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #app {
+        transition: none;
+        transform: none;
+      }
+      .boot-loader {
+        transition: none;
+      }
+      .boot-spinner { animation: none; }
+    }
+    .hero {
+      background: color-mix(in srgb, var(--surface) 92%, var(--brand-primary) 8%);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 20px;
+      padding: 28px;
+      margin-top: 12px;
+    }
+    .eyebrow {
+      display: inline-block;
+      background: color-mix(in srgb, var(--brand-warm) 16%, white);
+      color: color-mix(in srgb, var(--brand-dark) 70%, var(--brand-warm));
+      border: 1px solid color-mix(in srgb, var(--brand-warm) 36%, white);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.05;
+    }
+    p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 10px 24px color-mix(in srgb, var(--accent) 22%, transparent);
+    }
+    .btn-secondary {
+      background: #fff;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .card {
+      background: color-mix(in srgb, var(--surface) 94%, var(--brand-primary) 6%);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+    .card p {
+      margin: 0;
+      font-size: 14px;
+    }
+    .footer {
+      margin: 20px 0 8px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    @media (max-width: 760px) {
+      .wrap { padding: 16px; }
+      .hero { padding: 20px; border-radius: 16px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <noscript>
+    <style>
+      .boot-loader { display: none !important; }
+      #app { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
+  <div id="app">
+    <main class="wrap">
+      <div class="boot-loader" role="status" aria-live="polite" aria-label="App wordt geladen">
+        <div class="boot-loader-inner">
+          <span class="boot-spinner" aria-hidden="true"></span>
+          <span class="boot-loader-text">App laden...</span>
+        </div>
+      </div>
+      <section class="hero">
+        <span class="eyebrow">Rijschool in Suriname</span>
+        <h1>__SEO_H1__</h1>
+        <p>
+          Oefen theorie, verkeersborden en praktijksituaties met een moderne rijles-app.
+          Deze inhoud is vooraf gerenderd voor snelle laadtijden en betere SEO, en wordt daarna vervangen door de interactieve React-app.
+        </p>
+        <p>
+          Start direct met oefenen, bekijk lesinformatie en krijg toegang tot het platform van de rijschool.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/">Open de rijles-app</a>
+          <a class="btn btn-secondary" href="/?page=registration-requirements">Registratievereisten</a>
+        </div>
+      </section>
+  
+      <section class="grid" aria-label="Belangrijkste voordelen">
+        <article class="card">
+          <h2>Theorie oefenen</h2>
+          <p>Bereid je voor op het theorie-examen met oefenvragen en duidelijke uitleg.</p>
+        </article>
+        <article class="card">
+          <h2>Verkeersborden leren</h2>
+          <p>Herken borden en situaties sneller met visuele oefeningen en voorbeelden.</p>
+        </article>
+        <article class="card">
+          <h2>Praktijkondersteuning</h2>
+          <p>Gebruik de app als ondersteuning tijdens je voorbereiding op rijlessen en examens.</p>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Home Page - Highest Priority -->
+  <url>
+    <loc>%VITE_SEO_CANONICAL_URL%/</loc>
+    <lastmod>%LASTMOD_DATE%</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Main Navigation Pages -->
+  <url>
+    <loc>%VITE_SEO_CANONICAL_URL%/home/</loc>
+    <lastmod>%LASTMOD_DATE%</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>%VITE_SEO_CANONICAL_URL%/rijscholen/</loc>
+    <lastmod>%LASTMOD_DATE%</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>%VITE_SEO_CANONICAL_URL%/services/</loc>
+    <lastmod>%LASTMOD_DATE%</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Educational Content Pages -->
+  <url>
+    <loc>%VITE_SEO_CANONICAL_URL%/page/maquette</loc>
+    <lastmod>%LASTMOD_DATE%</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>%VITE_SEO_CANONICAL_URL%/page/qa</loc>
+    <lastmod>%LASTMOD_DATE%</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>%VITE_SEO_CANONICAL_URL%/page/verkeersborden</loc>
+    <lastmod>%LASTMOD_DATE%</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>%VITE_SEO_CANONICAL_URL%/page/videos</loc>
+    <lastmod>%LASTMOD_DATE%</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Additional Services -->
+  <url>
+    <loc>%VITE_SEO_CANONICAL_URL%/insurance/</loc>
+    <lastmod>%LASTMOD_DATE%</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>%VITE_SEO_CANONICAL_URL%/emergency/</loc>
+    <lastmod>%LASTMOD_DATE%</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Information Pages -->
+  <url>
+    <loc>%VITE_SEO_CANONICAL_URL%/about/</loc>
+    <lastmod>%LASTMOD_DATE%</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>%VITE_SEO_CANONICAL_URL%/referral/</loc>
+    <lastmod>%LASTMOD_DATE%</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>%VITE_SEO_CANONICAL_URL%/free-trial-signup/</loc>
+    <lastmod>%LASTMOD_DATE%</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>%VITE_SEO_CANONICAL_URL%/campaign/</loc>
+    <lastmod>%LASTMOD_DATE%</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

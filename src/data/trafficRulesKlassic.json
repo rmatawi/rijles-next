@@ -1,0 +1,634 @@
+{
+  "categories": [
+    {
+      "name": "Algemene verkeersregels",
+      "count": 29,
+      "questions": [
+        {
+          "id": "001",
+          "question": "Wat zegt de grondregel?",
+          "answer": "<p>Je mag je op de weg niet zó gedragen dat het verkeer onnodig wordt belemmerd of de veiligheid in gevaar komt.</p>"
+        },
+        {
+          "id": "002",
+          "question": "Is de autogordel verplicht?",
+          "answer": "<p>Ja. Bestuurders en passagiers moeten de autogordel dragen. Kinderen jonger dan 10 jaar mogen alleen naast de bestuurder zitten als ze een geschikt kinderzitje gebruiken (tenzij ze lang genoeg zijn voor de gordel).</p>"
+        },
+        {
+          "id": "003",
+          "question": "Mag je tijdens het rijden bellen met je mobiel?",
+          "answer": "<p>Nee. Je mag tijdens het rijden geen mobiele telefoon vasthouden.</p>"
+        },
+        {
+          "id": "004",
+          "question": "Wat is een weg?",
+          "answer": "<p>Een weg is elk openbaar toegankelijk weggedeelte:</p><ul><li>Rijbanen</li><li>Fietspaden</li><li>Voetpaden</li><li>Pleinen en bruggen</li><li>Inclusief bermen en zijkanten</li></ul>"
+        },
+        {
+          "id": "005",
+          "question": "Wat is het verschil tussen verharde en onverharde wegen?",
+          "answer": "<ul><li><strong>Verharde weg:</strong> heeft een betonnen of asfaltlaag</li><li><strong>Onverharde weg:</strong> heeft geen beton of asfaltdek</li></ul>"
+        },
+        {
+          "id": "006",
+          "question": "Wat zijn gescheiden rijbanen en welke volg je?",
+          "answer": "<p>Twee rijbanen naast elkaar, gescheiden door stroken, bomen of grachten, maximaal 20 meter uit elkaar.</p><p>Je moet de rijbaan <strong>links van je in rijrichting</strong> volgen.</p>"
+        },
+        {
+          "id": "007",
+          "question": "Wie zijn weggebruikers en wat betekent 'verkeer'?",
+          "answer": "<p><strong>Weggebruikers zijn:</strong></p><ul><li>Bestuurders van voertuigen</li><li>Geleiders van dieren</li><li>Voetgangers</li></ul><p><strong>'Verkeer'</strong> betekent alle weggebruikers samen.</p>"
+        },
+        {
+          "id": "008",
+          "question": "Wie is een bestuurder?",
+          "answer": "<p>Iemand die een voertuig of dier bestuurt of leidt, of onder toezicht laat besturen/leiden.</p><p><strong>Bij motorvoertuigen:</strong></p><ul><li>De persoon die rijdt, of</li><li>Degene die iemand onder toezicht laat rijden (met geldig instructeurrijbewijs, dubbele bediening, etc.)</li></ul>"
+        },
+        {
+          "id": "009",
+          "question": "Wat is een motorvoertuig en welke soorten zijn er?",
+          "answer": "<p>Een voertuig dat door een motor wordt voortbewogen (niet op rails).</p><p><strong>Soorten:</strong></p><ul><li>Personenauto's</li><li>Vrachtwagens</li><li>Tractoren</li><li>Motorfietsen</li><li>Scooters</li><li>Bromfietsen</li><li>Voertuigen met aanhangwagen</li></ul>"
+        },
+        {
+          "id": "010",
+          "question": "Wat is een autobus?",
+          "answer": "<p>Een motorvoertuig voor het vervoer van 8 of meer personen (bestuurder inbegrepen).</p>"
+        },
+        {
+          "id": "011",
+          "question": "Wat is 'nacht'?",
+          "answer": "<p>Tussen zonsondergang en zonsopkomst, maar altijd tussen 19:00 en 06:00 uur.</p>"
+        },
+        {
+          "id": "012",
+          "question": "Wat moet je doen bij stoppen, afremmen of wegrijden?",
+          "answer": "<p>Zonder het verkeer te hinderen.</p><p><strong>Bij stoppen of afremmen:</strong> Tijdig en duidelijk je voornemen aangeven aan achteropkomend verkeer.</p>"
+        },
+        {
+          "id": "013",
+          "question": "Wat is langzaam en snel verkeer?",
+          "answer": "<p><strong>Langzaam verkeer:</strong></p><ul><li>Fietsers</li><li>Bromfietsers</li><li>Geleiders van dieren</li><li>Bestuurders van niet-motorvoertuigen</li></ul><p><strong>Snel verkeer:</strong></p><ul><li>Bestuurders van motorvoertuigen</li><li>Behalve bromfietsers en gemotoriseerde handkarren</li></ul>"
+        },
+        {
+          "id": "014",
+          "question": "Wat is de bebouwde kom?",
+          "answer": "<p>Gebieden met bebouwing, aangegeven met borden (model 58 en 59).</p>"
+        },
+        {
+          "id": "015",
+          "question": "Waarvoor dient een onderbord?",
+          "answer": "<p>Voor uitleg of beperking van het bord erboven.</p>"
+        },
+        {
+          "id": "016",
+          "question": "Hoe mag je achteruitrijden?",
+          "answer": "<ul><li>Slechts stapvoets</li><li>Aan dezelfde kant als waar je stond</li><li>Alleen als het veilig is</li></ul><p><strong>Niet toegestaan op:</strong></p><ul><li>Autowegen</li><li>Eenrichtingswegen</li><li>Waar dit gevaar of hinder veroorzaakt</li></ul>"
+        },
+        {
+          "id": "017",
+          "question": "Hoe rij je in/uit een erf en mag je een portier openlaten?",
+          "answer": "<p><strong>In/uit erf rijden:</strong> Zonder het verkeer te hinderen.</p><p><strong>Portier openlaten:</strong> Alleen als het geen gevaar oplevert of verkeer hindert.</p>"
+        },
+        {
+          "id": "018",
+          "question": "Mag je verwarrende voorwerpen bij de weg plaatsen?",
+          "answer": "<p>Nee, niets wat op verkeersborden lijkt of ze onduidelijk maakt.</p>"
+        },
+        {
+          "id": "019",
+          "question": "Mag je mensen buiten op een auto vervoeren of voertuigen slepen?",
+          "answer": "<p><strong>Mensen buiten vervoeren:</strong> Nee, verboden.</p><p><strong>Slepen/trekken:</strong> Alleen met vergunning (behalve bergingsvoertuigen).</p>"
+        },
+        {
+          "id": "020",
+          "question": "Hoe zijn verkeersborden ingedeeld?",
+          "answer": "<p><strong>Waarschuwingsborden (driehoek, wit/rood):</strong></p><ul><li>Gevaarlijk kruispunt</li><li>Wegversmalling</li><li>Algemeen gevaar</li></ul><p><strong>Gebodsborden (blauw/rond):</strong></p><ul><li>Verplichte rijrichting</li><li>Verplicht fietspad</li><li>Verplichte rijbaan</li></ul><p><strong>Verbodsborden (rood/rond):</strong></p><ul><li>Gesloten voor verkeer/auto's</li><li>Rechtsaf verboden</li></ul><p><strong>Aanwijzingsborden (blauw/rechthoek):</strong></p><ul><li>Autoweg</li><li>Eenrichtingsweg</li><li>Parkeerplaats</li></ul><p><strong>Bijzondere borden (andere vormen/kleuren):</strong></p><ul><li>Voorrangsweg</li><li>Bushalte</li><li>Verplicht voetpad</li></ul>"
+        },
+        {
+          "id": "021",
+          "question": "Wat zijn politietekens en wat is de rangorde van verkeersregels?",
+          "answer": "<p><strong>Politietekens:</strong> Stop-, rij- en snelheidsaanwijzingen door agenten</p><p><strong>Rangorde verkeersregels:</strong></p><ol><li>Aanwijzingen van agenten</li><li>Verkeersborden/lichten</li><li>Algemene verkeersregels</li></ol>"
+        },
+        {
+          "id": "022",
+          "question": "Hoeveel plaatsruimte is nodig in een auto?",
+          "answer": "<ul><li><strong>Bestuurder:</strong> 60 cm</li><li><strong>Volwassen passagiers:</strong> 40 cm</li><li><strong>Kinderen 5–9 jr:</strong> 20 cm</li><li><strong>Kinderen <5 jr:</strong> Op schoot van passagier (niet bestuurder)</li></ul>"
+        },
+        {
+          "id": "023",
+          "question": "Wat doe je voor je instapt?",
+          "answer": "<ol><li>Kijk of er niets voor of achter de auto staat</li><li>Open het portier pas als dat veilig is</li><li>Rij op na controle via spiegels</li></ol>"
+        },
+        {
+          "id": "024",
+          "question": "Wat zijn voorbeelden van belemmering en gevaar?",
+          "answer": "<p><strong>Belemmering:</strong></p><ul><li>Auto's op smalle weg die geen uitwijkplaatsen gebruiken</li><li>Voetgangers naast elkaar op rijbaan</li></ul><p><strong>Gevaar:</strong></p><ul><li>Rechts rijden op onoverzichtelijke bocht</li><li>Voetgangers raken bij inhalen</li></ul>"
+        },
+        {
+          "id": "025",
+          "question": "Wat is verkeersfatsoen?",
+          "answer": "<ul><li>Hoffelijkheid</li><li>Hulpvaardigheid</li><li>Offervaardigheid</li><li>Naastenliefde in het verkeer</li></ul>"
+        },
+        {
+          "id": "026",
+          "question": "Waar stop je aan de weg?",
+          "answer": "<p>Aan de uiterst linkerzijde in je rijrichting.</p>"
+        },
+        {
+          "id": "027",
+          "question": "Wat zijn voertuiggewichten?",
+          "answer": "<ul><li><strong>Totaalgewicht:</strong> Ledig gewicht plus laadvermogen</li><li><strong>Laadvermogen:</strong> Maximaal toegestane gewicht aan lading</li><li><strong>Ladinggewicht:</strong> Totaalgewicht minus ledig gewicht</li></ul>"
+        },
+        {
+          "id": "028",
+          "question": "Wie is aansprakelijk bij een portierongeval?",
+          "answer": "<p>De passagier die het portier onachtzaam opent.</p>"
+        },
+        {
+          "id": "029",
+          "question": "Hoeveel rijbanen en rijstroken kan een weg hebben?",
+          "answer": "<ul><li><strong>Rijbanen:</strong> Een weg kan één of meer rijbanen hebben</li><li><strong>Rijstroken:</strong> Een rijbaan kan in twee of meer rijstroken worden verdeeld</li></ul>"
+        }
+      ]
+    },
+    {
+      "name": "Bijzondere voertuigen en situaties",
+      "count": 8,
+      "questions": [
+        {
+          "id": "030",
+          "question": "Wat is een eenrichtingsweg en wat is verboden?",
+          "answer": "<p>Een weg waarop je maar in één richting mag rijden.</p><p><strong>Verboden:</strong></p><ul><li>Rijden in de verkeerde richting</li><li>Keren</li><li>Achteruitrijden</li><li>Stoppen langs de rechterkant</li></ul>"
+        },
+        {
+          "id": "031",
+          "question": "Wat is een autoweg en wat is verboden?",
+          "answer": "<p>Een weg waar alleen snelle motorvoertuigen (meer dan 40 km/u) mogen rijden.</p><p><strong>Verboden:</strong></p><ul><li>Voetgangers (behalve op parkeerplaatsen)</li><li>Keren</li><li>Achteruitrijden</li><li>Stoppen buiten parkeerplaatsen</li><li>Gebruik van de middenberm</li></ul>"
+        },
+        {
+          "id": "032",
+          "question": "Wie mag een autoweg gebruiken?",
+          "answer": "<p>Bestuurders van motorvoertuigen die meer dan 40 km/u kunnen en mogen rijden.</p>"
+        },
+        {
+          "id": "033",
+          "question": "Wie zijn bevoorrechte weggebruikers?",
+          "answer": "<ul><li>Treinen</li><li>Politie-, brandweer- en ambulancevoertuigen met sirene</li><li>Begrafenisstoeten</li><li>Militaire colonnes</li></ul><p><strong>Mogen door rood licht rijden:</strong></p><ul><li>Politie, brandweer en ambulance met sirene of meertonige hoorn</li><li>Begrafenisstoeten alleen als ze bij groen al op het kruispunt waren</li></ul>"
+        },
+        {
+          "id": "034",
+          "question": "Wat doe je bij een begrafenisstoet?",
+          "answer": "<p>Stop uiterst links tot de lijkwagen is gepasseerd.</p><p>Het is verboden om de voortgang of orde te verstoren.</p>"
+        },
+        {
+          "id": "035",
+          "question": "Hoe herken je een geoorloofde optocht?",
+          "answer": "<ul><li>Door een vergunning</li><li>Politiebegeleiding aan het begin</li></ul>"
+        },
+        {
+          "id": "036",
+          "question": "Mag je een weg extra in beslag nemen of wedstrijden houden?",
+          "answer": "<p>Alleen met vergunning van de districtcommissaris.</p><p><strong>Extra inbeslagname geldt bij:</strong></p><ul><li>Brede lading</li><li>Extreem lage snelheid</li><li>Bijzondere voertuigen niet bedoeld voor normaal wegverkeer</li></ul>"
+        },
+        {
+          "id": "037",
+          "question": "Wie is een deelnemer aan een wedstrijd?",
+          "answer": "<ul><li>De bestuurder</li><li>De eigenaar van een voertuig of dier dat meedoet</li></ul>"
+        }
+      ]
+    },
+    {
+      "name": "Voorrang en kruispunten",
+      "count": 9,
+      "questions": [
+        {
+          "id": "038",
+          "question": "Wat is een rotonde en mag je daar stoppen of inhalen?",
+          "answer": "<p>Een bijzondere kruising waar het verkeer op de rotonde voorrang heeft.</p><ul><li><strong>Stoppen:</strong> Niet toegestaan (tenzij noodzakelijk)</li><li><strong>Inhalen:</strong> Mag links of rechts, maar je mag de rotonde alleen vanaf de linkerbaan verlaten</li></ul>"
+        },
+        {
+          "id": "039",
+          "question": "Wat doe je als je op de binnenste baan van een rotonde rijdt?",
+          "answer": "<p>Je verlaat de rotonde vanaf die positie en geeft duidelijk richting aan. Anders draai je gewoon door.</p>"
+        },
+        {
+          "id": "040",
+          "question": "Wat zijn verkeerslichten en wat betekenen ze?",
+          "answer": "<p>Voor het regelen van verkeer op drukke kruispunten.</p><p><strong>Twee soorten:</strong></p><ul><li>Lichtsignalen voor bestuurders</li><li>Oversteeklichten voor voetgangers</li></ul><p><strong>Betekenis rijverkeerslichten:</strong></p><ul><li><strong>Groen:</strong> rijden (tenzij hinder)</li><li><strong>Geel:</strong> stoppen, tenzij onveilig</li><li><strong>Rood:</strong> stoppen</li><li><strong>Geel knipperend:</strong> pas op, gevaar</li><li><strong>Bij pijl:</strong> alleen in die richting rijden</li></ul>"
+        },
+        {
+          "id": "041",
+          "question": "Hoe gedraag je je bij een kruising?",
+          "answer": "<p>Pas extra op, zelfs als je voorrang hebt.</p><p><strong>Bij een stopbord:</strong> Je moet stoppen voor je de kruising oprijdt.</p><p><strong>Opstellen bij kruising:</strong></p><ul><li>Achter elkaar in aankomstvolgorde</li><li>Fietsers uiterst links</li><li>Linksaf- en doorgaand verkeer links</li><li>Rechtsafverkeer sorteert rechts</li></ul>"
+        },
+        {
+          "id": "042",
+          "question": "Mag je op een kruising stilstaan?",
+          "answer": "<p>Nee, tenzij je tussen verkeersstromen past.</p>"
+        },
+        {
+          "id": "043",
+          "question": "Wat is een voorrangsweg en welke wegen zijn voorrangswegen?",
+          "answer": "<p>Een weg waar het verkeer voorrang heeft op alle kruisende wegen.</p><p><strong>Voorrangswegen in Paramaribo o.a.:</strong></p><ul><li>Mr. J. Lachmonstraat</li><li>Gemenelandsweg</li><li>J.A. Pengelstraat</li><li>Andere hoofdwegen</li></ul>"
+        },
+        {
+          "id": "044",
+          "question": "Wanneer moet je voorrang verlenen?",
+          "answer": "<ul><li>Bij stopbord</li><li>T-kruising (doorgaande weg heeft voorrang, ook als onverhard)</li><li>Onverharde weg</li><li>Gelijke rangorde (linkskomend)</li><li>Afslaand verkeer</li><li>Treinen</li><li>Hulpdiensten met sirene</li><li>Begrafenisstoeten</li><li>Optochten</li></ul>"
+        },
+        {
+          "id": "045",
+          "question": "Wat zijn verschillende soorten kruisingen?",
+          "answer": "<p><strong>Voorrangskruising:</strong> Één weg heeft voorrang (met bord)</p><p><strong>T-kruising:</strong> Één weg eindigt, doorgaande weg heeft voorrang</p><p><strong>Y-kruising:</strong> Splitsing waar niet duidelijk is welke weg eindigt</p><p><strong>Gelijke rangorde:</strong> Wegen met gelijk wegdek kruisen zonder voorrangsborden (linkse verkeer heeft voorrang)</p>"
+        },
+        {
+          "id": "046",
+          "question": "Wat zijn haaientanden en wegmarkeringen?",
+          "answer": "<p><strong>Haaientanden:</strong> Driehoekige markeringen die aanduiden dat je voorrangsweg/-kruising nadert</p><p><strong>Doorgetrokken streep:</strong> Mag er niet overheen rijden</p><p><strong>Onderbroken streep:</strong> Mag er overheen rijden (bijv. uitwijken)</p>"
+        }
+      ]
+    },
+    {
+      "name": "Voetgangers en fietsers",
+      "count": 16,
+      "questions": [
+        {
+          "id": "047",
+          "question": "Wat zijn fiets- en voetpaden?",
+          "answer": "<ul><li><strong>Fietspad:</strong> Een pad dat door borden of wet als fietspad is aangewezen</li><li><strong>Voetpad:</strong> Een pad dat duidelijk niet voor rijverkeer is en als voetpad is aangewezen met een bord</li></ul>"
+        },
+        {
+          "id": "048",
+          "question": "Wat is een bromfiets?",
+          "answer": "<p>Een tweewielig of driewielig motorvoertuig met:</p><ul><li>Max. 50 cm³ cilinderinhoud of elektrische motor</li><li>Maximumsnelheid van 40 km/u</li></ul><p>Een bromfiets is een motorvoertuig, tenzij uitdrukkelijk anders bepaald.</p>"
+        },
+        {
+          "id": "049",
+          "question": "Wie zijn voetgangers?",
+          "answer": "<p>Mensen die te voet gaan, inclusief wie een kinderwagen, handkar of rolstoel voortduwt.</p><p><strong>Let op:</strong> Kinderwagens zijn geen rij- of voertuigen.</p>"
+        },
+        {
+          "id": "050",
+          "question": "Wat betekenen voetgangerslichten?",
+          "answer": "<ul><li><strong>Groen:</strong> oversteken</li><li><strong>Rood:</strong> niet oversteken</li><li><strong>Rood knipperend:</strong> niet beginnen en haast maken als je al op het zebrapad bent</li></ul>"
+        },
+        {
+          "id": "051",
+          "question": "Wie moet een fietspad gebruiken en wie mag op de rijbaan fietsen?",
+          "answer": "<p><strong>Verplicht fietspad gebruiken:</strong></p><ul><li>Fietsers</li><li>Bromfietsers</li></ul><p><strong>Mogen op rijbaan fietsen:</strong></p><ul><li>Militairen of politie in groepen van meer dan 6 onder leiding</li><li>Zij rijden twee aan twee</li></ul>"
+        },
+        {
+          "id": "052",
+          "question": "Hoe vervoer je kinderen op een motor?",
+          "answer": "<p><strong>Jonger dan 10 jaar:</strong></p><ul><li>Op veilige zitplaats</li><li>Met steun voor rug, handen en voeten</li></ul><p><strong>10 jaar of ouder:</strong></p><ul><li>Achter bestuurder</li><li>Benen aan weerszijden</li><li>Met steun voor handen en voeten</li></ul><p><strong>Maximaal:</strong></p><ul><li>Één persoon op motor</li><li>Hoogstens één in zijspan</li></ul>"
+        },
+        {
+          "id": "053",
+          "question": "Waar moet een bromfiets aan voldoen?",
+          "answer": "<ul><li>Twee remmen</li><li>Toeter</li><li>Gele voorlantaarn</li><li>Rode achterlantaarn/reflector</li><li>Verlichte nummerplaat (20 m zichtbaar)</li></ul><p><strong>Verblindende verlichting:</strong> Elke lamp die niet duidelijk naar beneden gericht is.</p>"
+        },
+        {
+          "id": "054",
+          "question": "Hoe vervoer je personen op een bromfiets?",
+          "answer": "<p><strong>10+ jaar:</strong></p><ul><li>Achter bestuurder</li><li>Benen aan weerszijden</li><li>Op zitplaats met steun voor handen en voeten</li></ul><p><strong>Let op:</strong> Twee bromfietsers mogen niet naast elkaar rijden (behalve bij inhalen).</p>"
+        },
+        {
+          "id": "055",
+          "question": "Wat geldt voor valhelmen?",
+          "answer": "<p><strong>Verplicht voor:</strong> Bestuurder en passagier op motor met zijspan</p><p><strong>Eisen:</strong></p><ul><li>Helm moet goedgekeurd zijn</li><li>Goed vastzitten</li><li>Gezichtsscherm helder en niet spiegelend</li></ul>"
+        },
+        {
+          "id": "056",
+          "question": "Waar moet een fiets aan voldoen?",
+          "answer": "<ul><li>Goed stuur</li><li>Minstens één rem</li><li>Bel</li><li>Witte voorlantaarn</li><li>Rode achterlantaarn of reflector</li><li>Witte strook op spatbord</li></ul>"
+        },
+        {
+          "id": "057",
+          "question": "Hoe vervoer je kinderen op een fiets?",
+          "answer": "<p><strong>10+ jaar:</strong></p><ul><li>Achter bestuurder</li><li>Benen aan weerszijden</li></ul><p><strong>Jonger dan 10:</strong></p><ul><li>Op veilige zitplaats</li><li>Met steun voor rug, handen en voeten</li></ul>"
+        },
+        {
+          "id": "058",
+          "question": "Wat zijn de regels voor fietsers op de weg?",
+          "answer": "<p><strong>Verplicht:</strong> Tweewielige fietsers moeten fietspad gebruiken</p><p><strong>Naast elkaar rijden:</strong></p><ul><li>Maximaal twee naast elkaar</li><li>Achter elkaar bij hinder</li></ul><p><strong>Plaatsen:</strong> Niet hinderlijk plaatsen, ook niet langs trottoirrand</p><p><strong>Bellen:</strong></p><ul><li>Verplicht als nadering gevaar oplevert</li><li>Mag om te waarschuwen bij inhalen</li></ul>"
+        },
+        {
+          "id": "059",
+          "question": "Wanneer mogen voetgangers de rijbaan of fietspad gebruiken?",
+          "answer": "<p><strong>Rijbaan of fietspad:</strong> Alleen als er geen voetpad is</p><p><strong>Fietspad:</strong> Bij ontbrekend of belemmerd voetpad</p><p><strong>Rijbaan:</strong> Alleen als er geen voetpad of fietspad is, of als die belemmerd zijn</p><p><strong>Uitgezonderd:</strong></p><ul><li>Militairen</li><li>Politie</li><li>Begrafenisstoeten</li><li>Geoorloofde optochten</li></ul>"
+        },
+        {
+          "id": "060",
+          "question": "Hoe loopt een voetganger op fietspad en rijbaan?",
+          "answer": "<p><strong>Fietspad:</strong> Aan de kant die het verst van de rijbaan is</p><p><strong>Rijbaan:</strong> Bij voorkeur rechts, en altijd genoeg ruimte laten aan voertuigen</p>"
+        },
+        {
+          "id": "061",
+          "question": "Hoe steekt een voetganger over en wat geldt voor zebrapaden?",
+          "answer": "<p><strong>Oversteken:</strong> Haaks en zonder onderbreking</p><p><strong>Zebrapad:</strong> Gebruik als deze binnen 30 meter is</p><p><strong>Verboden:</strong> Oversteken binnen 30 meter van zebrapad, tenzij:</p><ul><li>Andere weg moet worden overgestoken</li><li>In/uitstappen bus</li></ul><p><strong>Straathoeken:</strong> Mag niet blijven staan als dit verkeer belemmert of gevaar oplevert</p>"
+        },
+        {
+          "id": "062",
+          "question": "Wat moet een bestuurder doen bij een zebrapad?",
+          "answer": "<p>Voorzichtig naderen en onbelemmerde doorgang verlenen aan voetgangers.</p><p><strong>Uitzondering (geen voorrang verlenen):</strong></p><ul><li>Politie, brandweer, ambulance met sirene</li><li>Militaire/politiecolonnes</li><li>Begrafenisstoeten</li><li>Optochten</li></ul>"
+        },
+        {
+          "id": "063",
+          "question": "Moet je voorrang geven aan een blinde met stok?",
+          "answer": "<p>Ja, altijd – ook buiten een zebrapad.</p>"
+        }
+      ]
+    },
+    {
+      "name": "Inhalen en passeren",
+      "count": 14,
+      "questions": [
+        {
+          "id": "064",
+          "question": "Wanneer moet je uitwijken?",
+          "answer": "<ul><li><strong>Naar links:</strong> bij tegenkomen of als je wordt ingehaald (tenzij onveilig)</li><li><strong>Naar rechts:</strong> bij inhalen van een ander voertuig (mits veilig)</li></ul><p><strong>Toegestane maatregelen:</strong></p><ul><li>Terugrijden naar een breder deel</li><li>De berm oprijden</li></ul>"
+        },
+        {
+          "id": "065",
+          "question": "Wanneer mag je niet inhalen?",
+          "answer": "<p><strong>Inhalen is verboden bij:</strong></p><ul><li>Inhaalverbod</li><li>Slecht zicht</li><li>Onoverzichtelijke bochten</li><li>Kruisingen</li><li>Bruggen</li><li>Tegenliggers</li><li>Als het in te halen voertuig bij een zebrapad stilstaat</li><li>Als het gevaar of hinder veroorzaakt</li></ul>"
+        },
+        {
+          "id": "066",
+          "question": "Hoe haal je een voertuig in?",
+          "answer": "<p><strong>In principe rechts.</strong> Op een recht stuk zonder tegenligger:</p><ol><li>Geef een geluid- of lichtsignaal</li><li>Wacht op reactie</li><li>Controleer of je niet zelf wordt ingehaald</li><li>Ga naar rechts</li><li>Voertuig inhalen</li><li>Voeg aan de rechterzijde</li></ol>"
+        },
+        {
+          "id": "067",
+          "question": "Wat doe je als iemand je wil inhalen?",
+          "answer": "<ul><li>Rij uiterst links</li><li>Verhoog je snelheid niet</li></ul>"
+        },
+        {
+          "id": "068",
+          "question": "Mogen twee voertuigen naast elkaar rijden?",
+          "answer": "<p><strong>Auto's:</strong> Nee, behalve tijdens inhalen</p><p><strong>Fietsers:</strong> Ja, maximaal twee naast elkaar, maar niet bij:</p><ul><li>Smalle wegen</li><li>Als dat hinder veroorzaakt</li></ul><p><strong>Let op:</strong> Bij drie fietsers naast elkaar zijn alle drie in overtreding.</p>"
+        },
+        {
+          "id": "069",
+          "question": "Wie moet voorsorteren en hoe doe je dat?",
+          "answer": "<p><strong>Moet voorsorteren:</strong> Rechtsafslaand snelverkeer (niet bij inrit)</p><p><strong>Mag voorsorteren:</strong> Langzaamverkeer (niet verplicht)</p><p><strong>Hoe voorsorteren:</strong></p><ul><li>Eenrichtingswegen: uiterst rechts</li><li>Tweerichtingswegen: rechterwielen tegen middenas</li></ul><p><strong>Vóór voorsorteren:</strong></p><ol><li>Controleer spiegel</li><li>Kijk rechts naast auto</li><li>Geef richting aan</li><li>Dan sorteren</li></ol>"
+        },
+        {
+          "id": "070",
+          "question": "Wanneer mag je niet inhalen bij een zebrapad?",
+          "answer": "<p>Als het in te halen voertuig stilstaat of langzaam naar het zebrapad rijdt.</p>"
+        }
+      ]
+    },
+    {
+      "name": "Voertuigtechniek en uitrusting",
+      "count": 11,
+      "questions": [
+        {
+          "id": "071",
+          "question": "Wanneer moet je een geluid- of lichtsignaal geven?",
+          "answer": "<p>Als je nadering gevaar kan opleveren:</p><ul><li><strong>Overdag:</strong> een toeter</li><li><strong>'s Nachts:</strong> een knippersignaal (snel herhaald in- en uitschakelen van groot licht)</li></ul>"
+        },
+        {
+          "id": "072",
+          "question": "Wanneer moet je richting aangeven?",
+          "answer": "<p>Altijd als je van richting verandert – met:</p><ul><li>Knipperlichten, of</li><li>Uitgestoken arm</li></ul>"
+        },
+        {
+          "id": "073",
+          "question": "Hoe moet lading worden vastgemaakt en wat zijn de afmetingen?",
+          "answer": "<p><strong>Vastzetten:</strong> Zo dat geen gevaar of schade ontstaat, en de bedrijfsveiligheid niet wordt aangetast.</p><p><strong>Hoogte:</strong></p><ul><li>Minimaal 30 cm boven grond</li><li>Maximaal 125 cm boven grond</li></ul><p><strong>Breedte:</strong></p><ul><li>Tweewielers: niet breder dan stuur</li><li>Meerwielen: niet breder dan buitenste wielen</li></ul><p><strong>Markering:</strong></p><ul><li>Overdag: rode vlag (min. 40×40 cm)</li><li>'s Nachts: witte lamp vooraan en rode lamp achteraan</li></ul>"
+        },
+        {
+          "id": "074",
+          "question": "Aan welke eisen moet een auto voldoen?",
+          "answer": "<ul><li>Goede stuurinrichting</li><li>Twee remmen</li><li>Toeter (70–95 dB)</li><li>Ruitenwisser</li><li>Spiegel</li><li>Knipperlichten</li><li>Stoplichten</li><li>Achteruitrijsysteem</li><li>Suppressor</li><li>Nummerplaten (achter verlicht)</li><li>Knaldemper</li><li>Banden</li><li>Koplampen</li><li>Achterlichten</li><li>Parkeerlichten</li><li>Ruiten: doorzichtig veiligheidsglas</li></ul>"
+        },
+        {
+          "id": "075",
+          "question": "Voor welke aanhangwagens is geen rem nodig?",
+          "answer": "<p>Voor eenassige aanhangwagens met wielbelasting tot 375 kg.</p>"
+        },
+        {
+          "id": "076",
+          "question": "Hoe geef je richting aan met knipperlicht?",
+          "answer": "<p>Met knipperlichtbediening binnen handbereik van de bestuurder.</p><p><strong>Knipperlicht:</strong> Gaat 40–90 keer per minuut automatisch aan en uit.</p>"
+        },
+        {
+          "id": "077",
+          "question": "Wat zijn de maximale afmetingen van een voertuig?",
+          "answer": "<ul><li>Hoogte: 3,80 m</li><li>Breedte: 2,50 m</li><li>Asdruk: 8.000 kg</li></ul>"
+        },
+        {
+          "id": "078",
+          "question": "Waar mag je niet toeteren?",
+          "answer": "<ul><li>Bij ziekenhuizen</li><li>Bij scholen</li><li>Bij kerkdiensten</li><li>Bij kantoren</li><li>Bij rechtszalen</li><li>Bij vergaderingen</li><li>'s Nachts (behalve bij nood)</li></ul>"
+        },
+        {
+          "id": "079",
+          "question": "Wat zijn de regels voor verlichting en signalen?",
+          "answer": "<ul><li><strong>Dimmen:</strong> Verplicht bij tegemoetkomend verkeer</li><li><strong>Signalen:</strong> Alleen voorgeschreven signalen gebruiken</li><li><strong>Duur:</strong> Niet langer dan nodig</li><li><strong>Verblindende verlichting:</strong> Verboden (behalve parkeerlichten, goed gericht dimlicht, linkse bermlichten of knipperlichten)</li></ul>"
+        },
+        {
+          "id": "080",
+          "question": "Wat als een tegenligger niet dimt?",
+          "answer": "<p>Je moet dimmen. Knipperen is niet toegestaan.</p><p>Kijk naar linkerkant van de weg en verminder snelheid indien nodig.</p>"
+        },
+        {
+          "id": "081",
+          "question": "Wanneer gebruik je de achteruitkijkspiegel?",
+          "answer": "<ul><li>Bij optrekken</li><li>Bij stoppen</li><li>Bij van richting veranderen</li><li>Bij voorsorteren</li><li>Bij inhalen</li></ul>"
+        }
+      ]
+    },
+    {
+      "name": "Parkeren, stoppen en laden",
+      "count": 8,
+      "questions": [
+        {
+          "id": "082",
+          "question": "Waar is stoppen verboden?",
+          "answer": "<ul><li>Op zebrapaden</li><li>Binnen 12 meter van kruisingen/bushaltes</li><li>Op bruggen</li><li>Bij zichtbelemmering</li><li>Waar het verkeer hindert</li></ul>"
+        },
+        {
+          "id": "083",
+          "question": "Wat is een wachtverbod en waar geldt het?",
+          "answer": "<p><strong>Wachtverbod:</strong> Je mag alleen even stoppen om mensen in/uit te laten of goederen te laden/lossen.</p><p><strong>Wachten verboden bij:</strong></p><ul><li>Wachtverbod</li><li>Voor inritten</li><li>Binnen 12 meter van parkeergelegenheden (aan die kant)</li></ul>"
+        },
+        {
+          "id": "084",
+          "question": "Wanneer mag je rechts van de weg wachten?",
+          "answer": "<p>Als:</p><ul><li>Er rails links zijn, of</li><li>Een wachtverbod links geldt</li></ul><p>Tenzij rechts ook een verbod geldt.</p>"
+        },
+        {
+          "id": "085",
+          "question": "Wat geldt voor bushaltes en stopverboden met 'autobussen'?",
+          "answer": "<p><strong>Busbestuurders:</strong> Mogen alleen daar stoppen om te laden/lossen, binnen het aangegeven vak.</p><p><strong>Bij 'autobussen' onderbord:</strong> Alleen bussen mogen daar stoppen bij hun bushalte.</p><p><strong>Let op:</strong> Dit geldt niet voor 's landsbussen.</p>"
+        },
+        {
+          "id": "086",
+          "question": "Mag je op een weg laden of lossen?",
+          "answer": "<p>Ja, maar alleen als dat elders niet praktisch is.</p>"
+        },
+        {
+          "id": "087",
+          "question": "Wat is wachten/parkeren en wat is een parkeerverbod?",
+          "answer": "<p><strong>Wachten/parkeren:</strong> Stilstaan langer dan nodig voor in/uitstappen of laden/lossen.</p><p><strong>Parkeerverbod:</strong> Je mag alleen kort stilstaan voor mensen in/uit laten of goederen laden/lossen.</p>"
+        },
+        {
+          "id": "088",
+          "question": "Wanneer mag je rechts parkeren en waar mag je zonder parkeerlichten parkeren?",
+          "answer": "<p><strong>Rechts parkeren alleen als:</strong></p><ul><li>Er rails links zijn, of</li><li>Een verbod links geldt</li><li>Tenzij rechts ook een verbod geldt</li></ul><p><strong>Zonder parkeerlichten mag bij:</strong></p><ul><li>Straatverlichting (50 m zichtbaar)</li><li>Op parkeerplaatsen</li><li>Buiten de rijbaan</li></ul>"
+        },
+        {
+          "id": "089",
+          "question": "Wat zijn de regels voor een onbeheerd voertuig en defecte voertuigen?",
+          "answer": "<p><strong>Onbeheerd voertuig:</strong> Mag niet blijven staan tenzij motor is uitgeschakeld.</p><p><strong>Defect voertuig:</strong> Maximaal 2×24 uur.</p><p><strong>Bij overtreding:</strong> Politie mag het voertuig laten wegslepen op kosten van de houder.</p>"
+        }
+      ]
+    },
+    {
+      "name": "Documenten en rijbewijs",
+      "count": 15,
+      "questions": [
+        {
+          "id": "090",
+          "question": "Moet een auto gekeurd worden?",
+          "answer": "<p>Ja:</p><ul><li>Voor eerste gebruik</li><li>Daarna jaarlijks</li></ul><p>Je moet ook aan tussentijdse keuringen meewerken.</p><p><strong>Verboden:</strong> Rijden met afgekeurd, ongekeurd voertuig of te veel passagiers.</p>"
+        },
+        {
+          "id": "091",
+          "question": "Wie bepaalt het max. aantal passagiers?",
+          "answer": "<p><strong>De keuringscommissie</strong> (door de minister aangewezen personen).</p><p>Het keuringsbewijs wordt gegeven door de secretaris van de keuringscommissie.</p>"
+        },
+        {
+          "id": "092",
+          "question": "Welke papieren moet je bij je hebben?",
+          "answer": "<p><strong>Voor auto:</strong></p><ul><li>Rijbewijs</li><li>Nummerbewijs</li><li>Keuringsbewijs</li><li>Verzekeringsbewijs</li><li>Eventueel inschrijvingsbewijs</li></ul><p><strong>Voor bromfiets:</strong></p><ul><li>Nummerbewijs</li><li>Keuringsbewijs</li><li>Verzekeringsbewijs</li><li>Bromfietscertificaat</li></ul>"
+        },
+        {
+          "id": "093",
+          "question": "Wie geeft welke documenten uit?",
+          "answer": "<ul><li><strong>Rijbewijs en nummerbewijs:</strong> Procureur-Generaal of diens vertegenwoordiger</li><li><strong>Keuringsbewijs:</strong> Secretaris keuringscommissie</li><li><strong>Inschrijvingsbewijs:</strong> Districtcommissaris van Paramaribo of vertegenwoordiger</li><li><strong>Bromfietscertificaat:</strong> Procureur-Generaal of vertegenwoordiger</li></ul>"
+        },
+        {
+          "id": "094",
+          "question": "Wanneer is een inschrijvingsbewijs nodig?",
+          "answer": "<p>Voor voertuigen op meer wielen die worden verhuurd per reis of waarvoor per plaats betaald wordt (geen privévoertuigen).</p>"
+        },
+        {
+          "id": "095",
+          "question": "Wat is een 'restraint' rijbewijs?",
+          "answer": "<p>Bij lichamelijke beperking krijg je een rijbewijs dat de noodzakelijke aanpassingen vermeldt.</p>"
+        },
+        {
+          "id": "096",
+          "question": "Wanneer mag je niet onder toezicht rijden?",
+          "answer": "<ul><li>Te jong (<16 voor bromfiets, <18 voor auto)</li><li>Onbekwaam</li><li>Rijbewijs ingevorderd</li><li>Onder invloed van alcohol of drugs</li></ul><p><strong>Onder invloed:</strong> Als je niet meer in staat bent om veilig te rijden.</p>"
+        },
+        {
+          "id": "097",
+          "question": "Wat zijn de leeftijdseisen voor verschillende voertuigen?",
+          "answer": "<ul><li><strong>Bromfiets:</strong> Minstens 16 jaar</li><li><strong>Auto:</strong> Minstens 18 jaar</li><li><strong>Driewielige bestelwagen:</strong> Minstens 18 jaar</li></ul>"
+        },
+        {
+          "id": "098",
+          "question": "Wat zijn de regels voor het bromfietscertificaat?",
+          "answer": "<p><strong>Verboden:</strong> Rijden zonder certificaat.</p><p><strong>Geldigheid:</strong> 10 jaar</p><p><strong>Verkrijgen:</strong> Na slagen voor theoretisch examen</p><p><strong>Voorwaarden examen:</strong></p><ul><li>16 jaar</li><li>Medische verklaring (≤2 weken)</li><li>Uittreksel bevolkingsregister</li><li>2 pasfoto's</li><li>Betaling SRD 50,-</li></ul><p><strong>Intrekking mogelijk bij:</strong></p><ul><li>Valse gegevens</li><li>Ernstige overtredingen</li><li>Herhaalde overtredingen</li></ul>"
+        },
+        {
+          "id": "099",
+          "question": "Wat mag je rijden met welk rijbewijs?",
+          "answer": "<ul><li><strong>Rijbewijs A:</strong> Motorfietsen (ook met zijspan/aanhangwagen) en driewielers (>450 kg ledig gewicht)</li><li><strong>Rijbewijs B-E:</strong> Auto's en lichte vrachtwagens (≤3500 kg totaalgewicht), tot 8 passagiers</li><li><strong>Rijbewijs C-E:</strong> Zware vrachtwagens (>3500 kg)</li><li><strong>Rijbewijs D-E:</strong> Bussen (meer dan 8 passagiers)</li></ul>"
+        },
+        {
+          "id": "100",
+          "question": "Wat is nodig voor een rijbewijsaanvraag?",
+          "answer": "<ul><li>Medische verklaring (≤14 dagen, op zegel)</li><li>Geboorte-uittreksel</li><li>3 pasfoto's (oor zichtbaar)</li><li>Zegel SRD 1,-</li><li>Examengeld</li><li>ID-kaart</li></ul>"
+        },
+        {
+          "id": "101",
+          "question": "Hoe lang is een rijbewijs geldig?",
+          "answer": "<p>10 jaar.</p><p>Geldigheidsduur kan worden ingekort bij ziekte of ouderdom.</p>"
+        },
+        {
+          "id": "102",
+          "question": "Wanneer kan je rijbewijs worden ingevorderd of ongeldig?",
+          "answer": "<p><strong>Invordering bij verdenking van:</strong></p><ul><li>Rijden onder invloed</li><li>Te hard rijden (≥50 km/u te snel)</li><li>Schuld bij dood/letsel</li></ul><p><strong>Ongeldig:</strong> Als blijkt dat houder ongeschikt is om te rijden</p><p>Procureur-Generaal mag medisch onderzoek eisen.</p>"
+        },
+        {
+          "id": "103",
+          "question": "Wanneer mag je niet met een auto rijden?",
+          "answer": "<ul><li>Onleesbare nummerplaat</li><li>Geen nummerbewijs/rijbewijs</li><li>Rijbewijs verlopen/ingevorderd</li><li>Leerling te jong (<16 voor bromfiets, <18 voor auto)</li></ul>"
+        },
+        {
+          "id": "104",
+          "question": "Wanneer moet je documenten inleveren?",
+          "answer": "<p><strong>Nummerbewijs:</strong></p><ul><li>Binnen 30 dagen na buitengebruikstelling, of</li><li>Binnen 5 werkdagen na overdracht</li><li>Wordt dan ongeldig</li></ul><p><strong>Rijbewijs:</strong></p><ul><li>Binnen 30 dagen na vervallen geldigheid</li></ul>"
+        }
+      ]
+    },
+    {
+      "name": "Snelheid en afstand",
+      "count": 4,
+      "questions": [
+        {
+          "id": "105",
+          "question": "Wat zijn de snelheidslimieten?",
+          "answer": "<p><strong>Binnen bebouwde kom:</strong></p><ul><li>Bromfiets: 30 km/u</li><li>Tractor: 16 km/u</li><li>Overig: 40 km/u</li></ul><p><strong>Buiten bebouwde kom:</strong></p><ul><li>Bromfiets: 40 km/u</li><li>Tractor: 16 km/u</li><li>Personenauto's: 80 km/u</li><li>Overig: 60 km/u</li></ul><p><strong>Let op:</strong> De maximumsnelheid mag niet worden overschreden, tenzij je politie, brandweer of ambulance bent met noodsignaal.</p>"
+        },
+        {
+          "id": "106",
+          "question": "Wat is de remweg en hoe bereken je die?",
+          "answer": "<p>De afstand die je aflegt vanaf remmen tot stilstand.</p><p><strong>Formule:</strong> (Snelheid ÷ 10)² = remweg in meters</p><p><strong>Bijvoorbeeld:</strong> Bij 30 km/u: (30 ÷ 10)² = 9 meter</p>"
+        },
+        {
+          "id": "107",
+          "question": "Wat is de snelheidsregel en waar moet je langzamer rijden?",
+          "answer": "<p><strong>Snelheidsregel:</strong> Pas snelheid aan zodat je veilig kunt stoppen binnen zichtbare en vrije wegafstand.</p><p><strong>Langzamer rijden bij:</strong></p><ul><li>Scholen</li><li>Kerken</li><li>Markten</li><li>Kruisingen</li><li>Bochten</li><li>Obstakels</li></ul>"
+        },
+        {
+          "id": "108",
+          "question": "Hoe groot moet de volgafstand zijn?",
+          "answer": "<p>Zó groot dat je veilig kunt stoppen zonder ander verkeer in gevaar te brengen.</p><p><strong>Buiten bebouwde kom:</strong> Groot genoeg om inhalend verkeer te laten passeren.</p>"
+        }
+      ]
+    },
+    {
+      "name": "Strafbepalingen en aansprakelijkheid",
+      "count": 6,
+      "questions": [
+        {
+          "id": "109",
+          "question": "Wat zijn de straffen voor rijden onder invloed?",
+          "answer": "<ul><li><strong>Rijden onder invloed:</strong> Tot 1 jaar gevangenis</li><li><strong>Leraar onder invloed toezicht houden:</strong> Tot 1 jaar gevangenis</li><li><strong>Leerling onder invloed laten rijden:</strong> Tot 1 jaar gevangenis voor instructeur</li></ul>"
+        },
+        {
+          "id": "110",
+          "question": "Wat zijn de straffen en regels bij ongevallen?",
+          "answer": "<p><strong>Wegrijden na ongeval:</strong> Tot 1 jaar gevangenis (misdrijf)</p><p><strong>Uitzondering:</strong> Meld je binnen 4 uur vrijwillig bij politie</p><p><strong>Verplicht:</strong></p><ul><li>Gegevens achterlaten</li><li>Slachtoffers helpen</li></ul><p><strong>Opzettelijk achterlaten in hulpeloze toestand:</strong> Tot 1 jaar gevangenis</p>"
+        },
+        {
+          "id": "111",
+          "question": "Wat zijn de straffen bij dood of letsel door schuld?",
+          "answer": "<ul><li><strong>Dood door schuld:</strong> Tot 1 jaar gevangenis</li><li><strong>Dood door alcohol of te hard rijden:</strong> Tot 5 jaar gevangenis + rijbewijs ingevorderd</li><li><strong>Dood onder invloed:</strong> Tot 5 jaar gevangenis</li><li><strong>Ernstig letsel onder invloed:</strong> Tot 2 jaar gevangenis</li></ul>"
+        },
+        {
+          "id": "112",
+          "question": "Wat zijn de straffen voor rijden met rijverbod of ongeldig rijbewijs?",
+          "answer": "<ul><li><strong>Rijden met rijverbod:</strong> Tot 1 jaar gevangenis (misdrijf)</li><li><strong>Rijden met ongeldig rijbewijs:</strong> Tot 1 jaar gevangenis</li></ul>"
+        },
+        {
+          "id": "113",
+          "question": "Wat zijn overige strafbepalingen?",
+          "answer": "<ul><li><strong>Andermans voertuig zonder toestemming gebruiken:</strong> Tot 6 maanden gevangenis of SRD 300 boete</li><li><strong>Overtredingen:</strong> Maximaal 30 dagen hechtenis of SRD 1500 boete</li></ul>"
+        },
+        {
+          "id": "114",
+          "question": "Wie is aansprakelijk bij overtredingen?",
+          "answer": "<p><strong>Aansprakelijk:</strong></p><ul><li>Zowel bestuurder als eigenaar/houder</li><li>Bij organisaties: de bestuurders</li></ul><p><strong>Eigenaar niet aansprakelijk als:</strong></p><ul><li>Hij aantoont dat voertuig tegen zijn wil werd gebruikt</li><li>Hij dat redelijkerwijs niet kon voorkomen</li></ul>"
+        }
+      ]
+    }
+  ]
+}

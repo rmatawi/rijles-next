@@ -1,0 +1,16 @@
+// src/services/index.js
+export { supabase } from './supabase'
+export { adminService } from './adminService'
+export { schoolService } from './schoolService'
+export { qaService } from './qaService'
+
+export { maquetteService } from './maquetteService'
+export { vehicleService } from './vehicleService'
+export { studentService } from './studentService'
+export { progressService } from './progressService'
+export { authService } from './authService'
+export { accountManagerService } from './accountManagerService'
+export { accessTokenService } from './accessTokenService'
+export { paymentService } from './paymentService'
+export { examService } from './examService'
+export { adsService } from './adsService'

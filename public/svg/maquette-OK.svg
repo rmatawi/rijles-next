@@ -1,0 +1,17 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 497 497">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;}.cls-1,.cls-2{stroke:#231f20;stroke-miterlimit:10;}.cls-2{fill:none;}</style>
+    </defs>
+    <polygon id="roads" class="cls-1" points="496.5 160 337 160 337 0.5 160 0.5 160 160 0.5 160 0.5 337 160 337 160 496.5 337 496.5 337 337 496.5 337 496.5 160" />
+    
+    <path id="path-bike-1" class="cls-2" d="M496.5,171.26H332.09a9.49,9.49,0,0,1-9.49-9.49V28.42" />
+    <path id="path-car-1" class="cls-2" d="M496.5,195.15H319.9a27,27,0,0,1-27-27.05V28.42" />
+    <path id="path-car-2" class="cls-2" d="M496.5,223.33H319.9a54.71,54.71,0,0,1-54.7-54.71V28.42" />
+    <path id="path-car-3" class="cls-2" d="M496.5,248.5H313.12c-41.74,0-75.58-32.47-75.58-72.52V28.42" />
+    
+    <rect id="bike-1" class="cls-1" x="317.83" y="120.54" width="9.54" height="41.22" rx="4.08" />
+    <rect id="car-1" class="cls-1" x="281.89" y="120.54" width="21.91" height="41.22" rx="4.08" />
+    <rect id="car-2" class="cls-1" x="254.24" y="120.54" width="21.91" height="41.22" rx="4.08" />
+    <rect id="car-3" class="cls-1" x="226.59" y="120.54" width="21.91" height="41.22" rx="4.08" />
+</svg>

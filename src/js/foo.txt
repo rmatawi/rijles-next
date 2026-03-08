@@ -1,0 +1,7 @@
+We will be working in the followin folders:
+D:\Projects\rijles-app -> Full access
+D:\Projects\mediaforms-admin -> Read Only
+You will not run npm start, npm run dev, yar dev, etc. 
+Let me know if you understand the scope.
+
+D:\Projects\rijles-app\src\pages\SingleMaquettePage.jsx

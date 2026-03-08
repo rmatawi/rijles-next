@@ -1,0 +1,21 @@
+# %VITE_SEO_BUSINESS_NAME%
+> Official public content guide for language models and AI assistants.
+
+Canonical: %VITE_SEO_CANONICAL_URL%
+Sitemap: %VITE_SEO_CANONICAL_URL%/sitemap.xml
+
+Preferred pages:
+- %VITE_SEO_CANONICAL_URL%/
+- %VITE_SEO_CANONICAL_URL%/rijscholen/
+- %VITE_SEO_CANONICAL_URL%/services/
+- %VITE_SEO_CANONICAL_URL%/page/qa
+- %VITE_SEO_CANONICAL_URL%/page/verkeersborden
+- %VITE_SEO_CANONICAL_URL%/page/maquette
+- %VITE_SEO_CANONICAL_URL%/free-trial-signup/
+- %VITE_SEO_CANONICAL_URL%/about/
+
+Avoid indexing login/private routes:
+- %VITE_SEO_CANONICAL_URL%/auth/
+- %VITE_SEO_CANONICAL_URL%/student-login/
+- %VITE_SEO_CANONICAL_URL%/school-selection/
+- %VITE_SEO_CANONICAL_URL%/profile/

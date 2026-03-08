@@ -1,0 +1,429 @@
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.intersection-container {
+  left: 50%;
+  transform: translate(-50%, 0%);
+  position: relative;
+  width: 360px;
+  height: 360px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.vehicle-display-container {
+  display: flex;
+  justify-content: center;
+}
+
+.road-type {
+  position: absolute;
+  color: #1f2937;
+  top: 160px;
+  left: 160px;
+}
+
+.roadline-thin {
+  border-top: 4px solid #1f2937;
+  width: 127px;
+  height: 129px;
+}
+
+.roadline-thin.hide {
+  border-top: 0px solid #ffffff;
+}
+
+.roadline-thin .roadline-thick {
+  position: relative;
+  bottom: -18px;
+  border-top: 5px solid #1f2937;
+  width: 110px;
+  height: 108px;
+}
+
+.road-container {
+  border-left: 5px solid #1f2937;
+  border-right: 5px solid #1f2937;
+  /* background-color: white; */
+  width: 125px; /* Increased width to accommodate 4 columns */
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.lane-note {
+  position: absolute;
+  transform: translate(0px, 83px);
+  width: 68px;
+  color: #1f2937;
+  font-weight: bold;
+  text-align: center;
+}
+
+.traffic-sign {
+  position: absolute;
+  transform: translate(-95px, 10px);
+  width: 40px;
+  height: 40px;
+}
+.traffic-sign img {
+  background-color: #e0e0e0;
+  border-radius: 5px;
+}
+
+.vehicle-bike-lane {
+  position: absolute;
+  width: 80px;
+  height: 140px;
+}
+.vehicle-bike-lane.left {
+  border-left: 2px solid #1f2937;
+}
+.vehicle-bike-lane.right {
+  border-right: 2px solid #1f2937;
+}
+.vehicle-bike-lane.both {
+  border-left: 2px solid #1f2937;
+  border-right: 2px solid #1f2937;
+}
+
+.vehicle-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px; /* Reduced gap to accommodate more columns */
+  transform: translate(0px, -13px);
+  margin-bottom: 0px;
+}
+
+.vehicle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 6px;
+  position: relative;
+  min-width: 10px;
+  z-index: 10;
+  flex: 1; /* Allow flex growth to distribute space */
+}
+
+/* Road type specific styling for vehicle containers */
+.vehicle-container.road-inrit,
+.vehicle-container.road-inrit-s,
+.vehicle-container.road-inrit-b {
+  opacity: 0.9;
+}
+
+.vehicle-container.road-zandweg {
+  opacity: 0.95;
+}
+
+.vehicle-container.road-tcross {
+  opacity: 0.85;
+}
+
+.vehicle-container.road-eindigende {
+  opacity: 0.9;
+}
+
+/* Special styling for vehicles turning into INRIT roads */
+.vehicle-container.turning-into-inrit {
+  opacity: 0.8;
+}
+
+.arrow-indicator {
+  font-size: 1.2rem !important; /* Slightly smaller for better fit */
+  color: #374151;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: absolute !important;
+  top: -12px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  text-shadow: 0.5px 0 0 black, -0.5px 0 0 black, 0 0.5px 0 black,
+    0 -0.5px 0 black;
+  z-index: 1 !important;
+  pointer-events: none;
+  width: 20px !important; /* Smaller width */
+  text-align: center !important;
+}
+
+.vehicle-rectangle {
+  width: 16px; /* Slightly smaller width */
+  height: 18px; /* Slightly smaller height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem; /* Smaller font for better fit */
+  background-color: white;
+  border-radius: 4px; /* Slightly smaller border radius */
+  color: #374151;
+  position: relative;
+  z-index: 10;
+  opacity: 1;
+  transition: all 0.3s ease;
+  overflow: visible;
+  margin-top: 4px;
+  border: 2px solid #8a8a8a;
+  margin-left: 1px; /* Reduced margin for better fit */
+  margin-bottom: -6px;
+}
+
+.vehicle-rectangle:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.vehicle-rectangle.car {
+  border: 2px solid #8a8a8a;
+}
+
+.vehicle-rectangle.bike {
+  border: 0;
+}
+
+.vehicle-rectangle.space {
+  background-color: unset;
+  border: 0;
+}
+
+/* Road type specific styling for vehicle rectangles */
+.vehicle-rectangle.road-inrit,
+.vehicle-rectangle.road-inrit-s,
+.vehicle-rectangle.road-inrit-b {
+  border-style: dashed;
+  background-color: #fff8e1;
+}
+
+.vehicle-rectangle.road-tcross,
+.vehicle-rectangle.road-doorgaande,
+.vehicle-rectangle.road-eindigende,
+.vehicle-rectangle.turning-into-inrit {
+  border-style: solid;
+  border-color: #494949;
+  background-color: #bdbdbd;
+}
+
+/* Edit mode styling */
+.vehicle-rectangle.space.edit {
+  background-color: unset;
+  border: 1px dotted #676767;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.vehicle-container.edit .vehicle-rectangle {
+  cursor: pointer;
+}
+
+/* Selected vehicle styling */
+.selected-vehicle {
+  opacity: 0.6;
+  pointer-events: none; /* Prevent further clicks */
+}
+
+.selected-vehicle .vehicle-rectangle {
+  background-color: #d4d4d8 !important;
+  border-color: #71717a !important;
+  color: #52525b !important;
+  border-style: dashed !important;
+}
+
+.selected-vehicle .arrow-indicator {
+  opacity: 0.5;
+  color: #71717a !important;
+}
+
+.vehicle-name {
+  position: relative;
+  z-index: 2;
+  line-height: 1;
+  font-size: 0.75rem;
+}
+
+.crossing-display-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 140px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.maquette-buttons {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.blue-btn {
+  color: #fff !important;
+  background-color: #007bff !important;
+}
+
+.blue-btn.text-large {
+  font-size: 1.8rem;
+}
+
+.btn-maquette-edit {
+  position: absolute;
+}
+.btn-maquette-edit.top-left {
+  top: 10px;
+  left: calc(50% - 130px);
+  transform: translateX(-50%);
+}
+.btn-maquette-edit.top-right {
+  top: 10px;
+  left: calc(50% + 130px);
+  transform: translateX(-50%);
+}
+.btn-maquette-edit.bottom-left {
+  bottom: 10px;
+  left: calc(50% - 130px);
+  transform: translateX(-50%);
+}
+/* Maquette */
+
+.maquette-comp {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Allow both overlapped MaquetteAnimation components to receive clicks */
+.maquette-comp > div {
+  pointer-events: none; /* Disable pointer events on the container divs */
+}
+
+.maquette-comp > div > div {
+  pointer-events: none; /* Also disable on the inner rotated div */
+}
+
+/* Enable pointer events only on the clickable SVG groups */
+.maquette-comp g[id^="car-"],
+.maquette-comp g[id^="bike-"] {
+  pointer-events: auto !important;
+}
+
+/* Ensure text elements within clickable groups are also clickable */
+.maquette-comp g[id^="car-"] *,
+.maquette-comp g[id^="bike-"] * {
+  pointer-events: auto !important;
+}
+
+.maquette-intersection {
+  fill: #ffffff;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+}
+.maquette-path {
+  fill: none;
+  /* stroke: #cbcbcb; */
+  stroke-miterlimit: 10;
+}
+.maquette-intersection.inrit-s {
+  background-color: #000000;
+}
+
+.maquette-vehicle-image {
+  height: 55px;
+  transform: translate(-2px, -15px);
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.4));
+}
+
+.maquette-text.rotate-0 {
+  transform: rotate(0deg);
+}
+.maquette-text.rotate-90 {
+  transform: rotate(90deg);
+}
+.maquette-text.rotate-180 {
+  transform: rotate(180deg);
+}
+.maquette-text.rotate-270 {
+  transform: rotate(270deg);
+}
+
+.maquette-text {
+  font-size: 15px;
+  text-anchor: middle;
+  alignment-baseline: middle;
+  font-weight: bold;
+  stroke: #ffffff;
+  stroke-width: 8px;
+  paint-order: stroke fill;
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0.8;
+}
+
+.maquette-placeholder {
+  width: 360px;
+  height: 360px;
+  background-color: #e3e3e3;
+  z-index: 100;
+  border-radius: 20px;
+}
+
+.maquette-road-type {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  /* background: rgba(0, 0, 0, 0.7); */
+  color: rgb(47, 47, 47);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  z-index: 10;
+}
+
+.maquette-note {
+  color: #1f2937;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+.maquette-bike-lane {
+  stroke: #000000;
+  stroke-width: 3px;
+}
+
+.maquette-btn-info {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 38px;
+  height: 38px;
+}
+
+.maquette-btn-play,
+.maquette-btn-reset {
+  position: absolute;
+  transform: translate(-50%, -50%) !important;
+  left: 50%;
+  top: calc(50% - 40px);
+  width: 50px;
+  height: 50px;
+  background-color: #7676766b;
+}
+
+.maquette-btn-play.next {
+  z-index: 10;
+}

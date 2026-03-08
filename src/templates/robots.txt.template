@@ -1,0 +1,21 @@
+# robots.txt for %VITE_SEO_BUSINESS_NAME%
+# %VITE_SEO_CANONICAL_URL%
+
+User-agent: *
+Allow: /
+
+# Disallow private/admin areas if any
+Disallow: /admin/
+Disallow: /auth/
+Disallow: /student-login/
+Disallow: /school-selection/
+Disallow: /profile/
+Disallow: /student-access-grant/
+Disallow: /admin-management/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: %VITE_SEO_CANONICAL_URL%/sitemap.xml
+
+# Crawl-delay (optional, helps prevent server overload)
+Crawl-delay: 1

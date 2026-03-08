@@ -9,9 +9,29 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@ionic/react": "^8.8.1",
+    "@supabase/supabase-js": "^2.98.0",
+    "animejs": "^4.3.6",
+    "dom7": "^4.0.6",
+    "dotenv": "^17.3.1",
+    "framework7": "^9.0.3",
+    "framework7-icons": "^5.0.5",
+    "framework7-react": "^9.0.3",
+    "html2canvas": "^1.4.1",
+    "ionicons": "^8.0.13",
+    "lucide-react": "^0.577.0",
+    "material-icons": "^1.13.14",
     "next": "16.1.6",
+    "prop-types": "^15.8.1",
+    "qrcode": "^1.5.4",
+    "qrcode.react": "^4.2.0",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "react-ga4": "^2.1.0",
+    "react-helmet-async": "^3.0.0",
+    "react-player": "^3.4.0",
+    "skeleton-elements": "^4.0.1",
+    "swiper": "^12.1.2"
   },
   "devDependencies": {
     "eslint": "^9",

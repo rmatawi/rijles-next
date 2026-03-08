@@ -1,0 +1,72 @@
+notes.txt
+
+https://www.facebook.com/profile.php?id=61562974894972
+
+Goedemiddag meneer/mevrouw,
+Ik ontwikkel een rijles-app waarmee rijscholen alles digitaal kunnen doen —
+geen stencils meer, altijd toegankelijk voor cursisten, en u kunt zelf vragen en maquettes bouwen.
+
+Klik deze link om even te kijken wat het kan doen voor uw lessen:
+https://rijles.netlify.app/
+
+Mvg,
+Rian M.
+
+http://localhost:4000/?page=student-access-request&school=A01&firstName=Jomanto&lastName=Matawi&phone=8754335
+http://localhost:4000/?verify-access?key=MGY4ODPE5MZ87XTB
+http://localhost:4000/?ref=pW9rTBRG
+
+###################################
+
+Great question! Let me clarify what happens when someone receives and clicks a referral
+link. Based on the implementation I've done, here's what happens at the database level:
+
+When a user clicks a referral link (e.g., https://example.com/?ref=ABC123XYZ)
+Scenario A: User has NOT logged in with Google yet
+1. The user clicks the referral link and lands on the Rijles app
+2. The URL parameter ?ref=ABC123XYZ is detected by the AccountManagerPage.jsx
+3. Since the user is not logged in, the referral code is stored in browser session/localstorage
+4. When the user signs up/log in with Google for the first time, the following happens:
+   - After successful Google authentication, the app checks for a referral code in storage
+   - The system finds the referral code (ABC123XYZ) and looks up the account manager in the
+      database
+   - The system creates a new admin record in drv_admins table for the user
+   - The referral_account_manager_id field in the admin record is set to the account
+      manager's ID
+   - The account_manager_id field (which links admins to account managers) is also set
+
+Scenario B: User has already logged in with Google
+1. The user clicks the referral link and lands on the Rijles app
+2. The AccountManagerPage.jsx detects the ?ref=ABC123XYZ parameter
+3. Since the user is already logged in, the system immediately:
+   - Finds the account manager with referral code "ABC123XYZ"
+   - Gets the current user's admin record from the database
+   - Updates the admin record to set referral_account_manager_id and account_manager_id to
+      the account manager's ID
+
+Database Changes
+When a referral is successfully processed, the following occurs in the database:
+1 -- Update the admin's record to link them to the account manager
+2 UPDATE drv_admins
+3 SET
+4   account_manager_id = [account_manager_id],
+5   referral_account_manager_id = [account_manager_id],
+6   updated_at = [current_timestamp]
+7 WHERE email = [user_email];
+
+The Complete Flow
+
+1. Account Manager: Creates account in the system (likely by super admin), generates
+   referral code
+2. Account Manager: Shares link https://example.com/?ref=ABC123XYZ
+3. Referee: Clicks the link (with or without existing account)
+4. System: Detects the ?ref=ABC123XYZ parameter
+5. System: Looks up account manager with referral code "ABC123XYZ"
+6. System: Finds or creates admin record for the user
+7. System: Updates the admin record to link to the account manager
+8. Database Result: The drv_admins record now has account_manager_id and
+   referral_account_manager_id set to the account manager's ID
+
+This creates a clear relationship where the admin is associated with the account manager
+who referred them, allowing the account manager to track the admins they've brought into
+the system.
