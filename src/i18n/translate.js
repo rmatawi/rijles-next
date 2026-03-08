@@ -3,7 +3,10 @@ import translations from './translations.json';
 
 // Default language
 const DEFAULT_LANGUAGE = 'nl';
-let currentLanguage = localStorage.getItem('language') || DEFAULT_LANGUAGE;
+const isBrowser = typeof window !== 'undefined';
+let currentLanguage = isBrowser
+  ? window.localStorage.getItem('language') || DEFAULT_LANGUAGE
+  : DEFAULT_LANGUAGE;
 
 /**
  * Set the current language
@@ -12,7 +15,9 @@ let currentLanguage = localStorage.getItem('language') || DEFAULT_LANGUAGE;
 export const setLanguage = (lang) => {
   if (translations[lang]) {
     currentLanguage = lang;
-    localStorage.setItem('language', lang);
+    if (isBrowser) {
+      window.localStorage.setItem('language', lang);
+    }
     return true;
   }
   console.warn(`Language '${lang}' not supported. Using default language.`);

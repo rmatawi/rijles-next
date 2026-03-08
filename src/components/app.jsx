@@ -1,11 +1,11 @@
 // components/app.jsx - Refactored version
-import { useState, useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { App, View, f7ready, f7 } from "framework7-react";
 import { usePathname, useSearchParams } from "next/navigation";
 import ReactGA from "react-ga4";
 import { HelmetProvider } from "react-helmet-async";
 
-import routes from "../js/routes";
+import pageRoutes, { notFoundComponent } from "../js/routes";
 import store from "../js/store";
 import { MaquetteGroupsProvider } from "../contexts/MaquetteGroupsContext";
 import { AdminStatusProvider } from "../contexts/AdminStatusContext";
@@ -71,9 +71,25 @@ const normalizePath = (pathname = "/") => {
   return pathname.replace(/\/+$/, "") || "/";
 };
 
-const getNormalizedLocationUrl = () => {
-  const pathname = normalizePath(stripAppBasePath(window.location.pathname));
-  const params = new URLSearchParams(window.location.search);
+const getPathFromUrl = (urlValue = "/") => {
+  const [pathOnly] = String(urlValue || "/").split("?");
+  return normalizePath(pathOnly);
+};
+
+const resolveRouteComponent = (urlValue = "/") => {
+  const targetPath = getPathFromUrl(urlValue);
+
+  const matchedRoute = pageRoutes.find((route) => {
+    const routePath = normalizePath(route.path);
+    return routePath === targetPath;
+  });
+
+  return matchedRoute?.component || notFoundComponent || null;
+};
+
+const getNormalizedUrlFromParts = (pathnameInput = "/", searchInput = "") => {
+  const pathname = normalizePath(stripAppBasePath(pathnameInput));
+  const params = new URLSearchParams(searchInput || "");
   const page = params.get("page");
   let normalizedPath = pathname;
 
@@ -84,14 +100,7 @@ const getNormalizedLocationUrl = () => {
   }
 
   const query = params.toString();
-  const nextUrl = query ? `${normalizedPath}?${query}` : normalizedPath;
-  const currentUrl = `${pathname}${window.location.search || ""}`;
-
-  if (nextUrl !== currentUrl) {
-    window.history.replaceState({}, "", nextUrl);
-  }
-
-  return nextUrl;
+  return query ? `${normalizedPath}?${query}` : normalizedPath;
 };
 
 const ensureRobotsMeta = () => {
@@ -122,6 +131,11 @@ const updateRobotsForRoute = (urlValue) => {
   const robotsMeta = ensureRobotsMeta();
   const robotsValue = shouldNoIndexRoute(urlValue) ? "noindex, nofollow" : "index, follow";
   robotsMeta.setAttribute("content", robotsValue);
+};
+
+const RouteContent = ({ component: Component, activeUrl, f7route }) => {
+  if (!Component) return null;
+  return <Component key={activeUrl} f7route={f7route} />;
 };
 
 const MyApp = () => {
@@ -188,9 +202,6 @@ const MyApp = () => {
 
     // App store
     store: store,
-    // App routes
-    routes: routes,
-
     // Register service worker (only on production build)
     serviceWorker: {},
 
@@ -217,9 +228,6 @@ const MyApp = () => {
   };
 
   f7ready((f7Instance) => {
-    // Make f7 globally available for theme switching
-    window.f7 = f7Instance;
-
     // Load and apply saved theme from localStorage
     const savedTheme = localStorage.getItem("mode");
     if (savedTheme === "dark") {
@@ -258,20 +266,31 @@ const MyApp = () => {
     f7Instance.on("routeChange", (newRoute, previousRoute) => {});
   });
 
-  // State to manage the active URL
-  const [activeUrl, setActiveUrl] = useState(() =>
-    typeof window !== "undefined" ? getNormalizedLocationUrl() : "/"
+  const activeUrl = useMemo(
+    () => getNormalizedUrlFromParts(pathname || "/", searchParams?.toString() || ""),
+    [pathname, searchParams]
   );
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setActiveUrl(getNormalizedLocationUrl());
+    if (typeof window === "undefined") return;
+    const currentUrl = `${normalizePath(stripAppBasePath(window.location.pathname))}${window.location.search || ""}`;
+    if (activeUrl !== currentUrl) {
+      window.history.replaceState({}, "", activeUrl);
     }
-  }, [pathname, searchParams]);
+  }, [activeUrl]);
 
   useEffect(() => {
     updateRobotsForRoute(activeUrl);
   }, [activeUrl]);
+
+  const activeRouteComponent = resolveRouteComponent(activeUrl);
+  const activeSearchParams = new URLSearchParams(activeUrl.split("?")[1] || "");
+  const activePath = getPathFromUrl(activeUrl);
+  const f7route = {
+    path: activePath,
+    url: activeUrl,
+    query: Object.fromEntries(activeSearchParams.entries()),
+  };
 
   return (
     <HelmetProvider>
@@ -291,7 +310,9 @@ const MyApp = () => {
                       browserHistory={true}
                       browserHistoryRoot={BROWSER_HISTORY_ROOT}
                       browserHistorySeparator=""
-                    />
+                    >
+                      <RouteContent component={activeRouteComponent} activeUrl={activeUrl} f7route={f7route} />
+                    </View>
                   </App>
                 </MaquetteEventProvider>
               </MaquetteGroupsProvider>

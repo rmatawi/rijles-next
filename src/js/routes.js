@@ -51,7 +51,7 @@ import AdsDashboardPage from "../f7pages/AdsDashboardPage.jsx";
 import AdsCampaignPage from "../f7pages/AdsCampaignPage.jsx";
 import SuperAdminToolsPage from "../f7pages/SuperAdminToolsPage.jsx";
 
-const baseRoutes = [
+const pageRoutes = [
   {
     path: "/",
     component: HomePage,
@@ -244,18 +244,7 @@ const baseRoutes = [
     path: "/superadmin-tools",
     component: SuperAdminToolsPage,
   },
-  {
-    path: "(.*)",
-    component: NotFoundPage,
-  },
 ];
 
-const routes = baseRoutes.flatMap((route) => {
-  if (route.path === "/" || route.path === "(.*)" || route.path.endsWith("/")) {
-    return [route];
-  }
-
-  return [route, { ...route, path: `${route.path}/` }];
-});
-
-export default routes;
+export const notFoundComponent = NotFoundPage;
+export default pageRoutes;

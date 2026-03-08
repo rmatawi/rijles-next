@@ -19,11 +19,13 @@ const notifySubscribers = () => {
 };
 
 // Add a language change listener to update when localStorage changes in other tabs
-window.addEventListener('storage', (e) => {
-  if (e.key === 'language' && e.newValue !== e.oldValue) {
-    notifySubscribers();
-  }
-});
+if (typeof window !== 'undefined') {
+  window.addEventListener('storage', (e) => {
+    if (e.key === 'language' && e.newValue !== e.oldValue) {
+      notifySubscribers();
+    }
+  });
+}
 
 // React hook for translations
 export const useI18n = () => {
