@@ -1,6 +1,15 @@
 // src/services/maquetteService.js
 import { SUPABASE_CONFIG } from "../services/supabase";
 import { convertTo3x3Grid } from "../js/utils";
+import { resolveCurrentSchoolId } from "../utils/currentSchool";
+
+const normalizeEnvValue = (value) =>
+  value == null ? "" : String(value).trim().replace(/^["']|["']$/g, "");
+
+const isUuid = (value) =>
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
+    value
+  );
 
 // Return hardcoded groups when no school ID is provided
 const hardcodedGroups = [
@@ -217,7 +226,7 @@ export const maquetteService = {
   getFirstFiveMaquettes: async () => {
     try {
       // Get the current school ID
-      const schoolId = process.env.VITE_REACT_APP_DEFAULTSCHOOL;
+      const schoolId = normalizeEnvValue(resolveCurrentSchoolId());
 
       // Access environment variables directly through import.meta
       const supabaseUrl = SUPABASE_CONFIG.URL;
@@ -235,8 +244,19 @@ export const maquetteService = {
         );
       }
 
+      // Avoid broken PostgREST filters like eq.undefined / eq.null
+      if (!schoolId || !isUuid(schoolId)) {
+        console.warn(
+          "Skipping getFirstFiveMaquettes: invalid school ID:",
+          schoolId || "(empty)"
+        );
+        return { data: [], error: null };
+      }
+
       // Make fetch request to Supabase REST API to get first 5 maquettes filtered by school ID
-      const url = `${supabaseUrl}/rest/v1/drv_maquettes?driving_school_id=eq.${schoolId}&order=created_at.asc&select=*&limit=5`;
+      const url = `${supabaseUrl}/rest/v1/drv_maquettes?driving_school_id=eq.${encodeURIComponent(
+        schoolId
+      )}&order=created_at.asc&select=*&limit=5`;
       const response = await fetch(url, {
         method: "GET",
         headers: {
@@ -248,7 +268,10 @@ export const maquetteService = {
       });
 
       if (!response.ok) {
-        console.error(`HTTP error! Status: ${response.status}`);
+        const errorBody = await response.text();
+        console.error(
+          `HTTP error! Status: ${response.status}. Response: ${errorBody}`
+        );
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
