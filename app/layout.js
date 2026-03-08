@@ -81,16 +81,19 @@ export default async function RootLayout({ children }) {
       reviewCount: seoConfig.reviewCount || undefined,
     },
   };
+  const shouldLoadAdsense = process.env.NODE_ENV === "production";
 
   return (
     <html lang="nl">
       <body>
-        <Script
-          async
-          crossOrigin="anonymous"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2987900572749814"
-          strategy="afterInteractive"
-        />
+        {shouldLoadAdsense ? (
+          <Script
+            async
+            crossOrigin="anonymous"
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2987900572749814"
+            strategy="afterInteractive"
+          />
+        ) : null}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

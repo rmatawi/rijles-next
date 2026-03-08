@@ -34,6 +34,11 @@ export default function useAppNavigation() {
   );
 
   const back = useCallback(() => {
+    if (typeof window !== "undefined" && window.history.length <= 1) {
+      router.replace("/");
+      return;
+    }
+
     router.back();
   }, [router]);
 

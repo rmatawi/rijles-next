@@ -266,6 +266,8 @@ export const seoMap = {
   },
 };
 
+export const knownPageKeys = new Set(Object.keys(seoMap));
+
 const toAbsolute = (path = "/", siteUrl) => {
   if (path.startsWith("http")) return path;
   const normalizedSite = siteUrl.replace(/\/$/, "");

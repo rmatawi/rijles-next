@@ -30,6 +30,7 @@ import ReferralRewardsPanel from "../components/ReferralRewardsPanel";
 import ReferralLeaderboard from "../components/ReferralLeaderboard";
 import { referralService } from "../services/referralService";
 import { SEO } from "../js/seoUtils";
+import useAppNavigation from "../hooks/useAppNavigation";
 
 /**
  * ReferralPage Component
@@ -39,6 +40,7 @@ import { SEO } from "../js/seoUtils";
  * - Leaderboard: Rankings and competition
  */
 const ReferralPage = () => {
+  const { back } = useAppNavigation();
   const [activeTab, setActiveTab] = useState("dashboard");
   const authUser = useStore("authUser");
   const [studentId, setStudentId] = useState(null);
@@ -103,9 +105,14 @@ const ReferralPage = () => {
       <Page name="referral">
         <Navbar>
           <NavLeft>
-            <Link back>
+            <button
+              type="button"
+              onClick={back}
+              aria-label="Go back"
+              style={{ background: "none", border: "none", cursor: "pointer" }}
+            >
               <IonIcon icon={arrowBack} />
-            </Link>
+            </button>
           </NavLeft>
           <NavTitle>Referral Program</NavTitle>
         </Navbar>
@@ -129,9 +136,14 @@ const ReferralPage = () => {
       {/* Navbar */}
       <Navbar>
         <NavLeft>
-          <Link back>
+          <button
+            type="button"
+            onClick={back}
+            aria-label="Go back"
+            style={{ background: "none", border: "none", cursor: "pointer" }}
+          >
             <IonIcon icon={arrowBack} />
-          </Link>
+          </button>
         </NavLeft>
         <NavTitle>Referral Program</NavTitle>
       </Navbar>

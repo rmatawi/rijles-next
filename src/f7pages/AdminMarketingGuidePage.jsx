@@ -4,9 +4,8 @@ import {
   Navbar,
   NavTitle,
   NavLeft,
-  Link,
   Block,
-  f7,
+  Link,
 } from "framework7-react";
 import { chevronBack } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
@@ -16,22 +15,32 @@ import { openStudentAccessGrantDialog } from "../services/studentAccessGrantServ
 import useAppNavigation from "../hooks/useAppNavigation";
 
 const AdminMarketingGuidePage = () => {
-  const { navigate } = useAppNavigation();
+  const { navigate, back } = useAppNavigation();
   const authUser = useStore("authUser");
   const isAdmin = isAdminUser(authUser);
+
+  const handleBack = () => {
+    if (typeof window !== "undefined" && window.history.length > 1) {
+      back();
+      return;
+    }
+
+    navigate("/", { replace: true });
+  };
 
   return (
     <Page name="admin-marketing-guide" className="page-neu">
       <Navbar sliding={false} className="neu-navbar">
         <NavLeft>
-          <Link
-            back
-            iconOnly
+          <button
+            type="button"
+            onClick={handleBack}
             style={{ color: "var(--f7-theme-color)" }}
             className="neu-btn-circle"
+            aria-label="Ga terug"
           >
             <IonIcon icon={chevronBack} style={{ fontSize: "24px" }} />
-          </Link>
+          </button>
         </NavLeft>
         <NavTitle className="neu-text-primary">Admin Marketing Gids</NavTitle>
       </Navbar>
@@ -244,6 +253,8 @@ const AdminMarketingGuidePage = () => {
             justify-content: center;
             background: var(--neu-bg);
             box-shadow: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+            border: none;
+            cursor: pointer;
           }
         `,
         }}

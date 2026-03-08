@@ -131,6 +131,56 @@ const updateRobotsForRoute = (urlValue) => {
   robotsMeta.setAttribute("content", robotsValue);
 };
 
+const fallbackBrowserBack = (fallbackPath = "/") => {
+  if (typeof window === "undefined") return;
+
+  if (window.history.length > 1) {
+    window.history.back();
+    return;
+  }
+
+  window.location.assign(fallbackPath);
+};
+
+const patchRouterBack = (router, fallbackPath = "/") => {
+  if (!router || typeof router.back !== "function" || router.__safeBackPatched) {
+    return;
+  }
+
+  const originalBack = router.back.bind(router);
+
+  router.back = (...args) => {
+    try {
+      return originalBack(...args);
+    } catch (error) {
+      console.warn("Framework7 router.back failed, using browser fallback.", error);
+      fallbackBrowserBack(fallbackPath);
+      return undefined;
+    }
+  };
+
+  router.__safeBackPatched = true;
+};
+
+const patchAllViewRouters = (f7Instance, fallbackPath = "/") => {
+  if (!f7Instance?.views) return;
+
+  Object.values(f7Instance.views).forEach((view) => {
+    if (view?.router) {
+      patchRouterBack(view.router, fallbackPath);
+    }
+  });
+};
+
+const scheduleWhenIdle = (callback, timeout = 2000) => {
+  if (typeof window === "undefined") return;
+  if (typeof window.requestIdleCallback === "function") {
+    window.requestIdleCallback(callback, { timeout });
+    return;
+  }
+  window.setTimeout(callback, Math.min(timeout, 1500));
+};
+
 const RouteContent = ({ component: Component, activeUrl, f7route }) => {
   if (!Component) return null;
   return (
@@ -233,6 +283,8 @@ const MyApp = () => {
     if (typeof window === "undefined") return;
 
     f7ready((f7Instance) => {
+      patchAllViewRouters(f7Instance, "/");
+
       // Load and apply saved theme from localStorage
       const savedTheme = localStorage.getItem("mode");
       if (savedTheme === "dark") {
@@ -250,16 +302,19 @@ const MyApp = () => {
         try {
           await store.dispatch("initializeApp");
 
-          // After app initialization completes, initialize admin status
-          // This ensures the auth user is properly loaded before checking admin status
-          await store.dispatch("initializeAdminStatus");
+          // Defer non-critical admin bootstrap work so the first route paints faster.
+          scheduleWhenIdle(() => {
+            store.dispatch("initializeAdminStatus").catch((error) => {
+              console.error("Error during deferred admin initialization:", error);
+            });
+
+            // Start polling for admin status if newAdmin flag is set.
+            pollAdminStatus();
+          }, 2500);
         } catch (error) {
           console.error("Error during app/admin initialization:", error);
         }
       })();
-
-      // Start polling for admin status if newAdmin flag is set
-      pollAdminStatus();
 
       // Track page views
       f7Instance.on("pageAfterIn", (page) => {

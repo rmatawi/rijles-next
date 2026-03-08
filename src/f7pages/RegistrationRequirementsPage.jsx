@@ -17,8 +17,10 @@ import { chevronBack } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import DashboardActionCard from "../components/DashboardActionCard";
 import { getThemeGradient } from "../js/utils";
+import useAppNavigation from "../hooks/useAppNavigation";
 
 const RegistrationRequirementsPage = () => {
+  const { back } = useAppNavigation();
   const requirements = [
     {
       title: "Aanvraag rijbewijs uittreksel",
@@ -116,14 +118,15 @@ const RegistrationRequirementsPage = () => {
     <Page name="registration-requirements" className="page-neu">
       <Navbar sliding={false} className="neu-navbar">
         <NavLeft>
-          <Link
-            back
-            iconOnly
+          <button
+            type="button"
+            onClick={back}
             style={{ color: "var(--f7-theme-color)" }}
             className="neu-btn-circle"
+            aria-label="Ga terug"
           >
             <IonIcon icon={chevronBack} style={{ fontSize: "24px" }} />
-          </Link>
+          </button>
         </NavLeft>
         <NavTitle className="neu-text-primary">Benodigde documenten</NavTitle>
       </Navbar>

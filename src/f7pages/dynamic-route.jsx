@@ -1,11 +1,20 @@
 import React from 'react';
-import { Page, Navbar, Block, Link } from 'framework7-react';
+import { Page, Navbar, Block, Link, NavLeft, NavTitle } from 'framework7-react';
+import useAppNavigation from "../hooks/useAppNavigation";
 
 const DynamicRoutePage = (props) => {
-  const { f7route, f7router } = props;
+  const { back } = useAppNavigation();
+  const { f7route } = props;
   return (
     <Page>
-      <Navbar title="Dynamic Route" backLink="Back" />
+      <Navbar>
+        <NavLeft>
+          <button type="button" onClick={back} style={{ background: "none", border: "none", cursor: "pointer" }}>
+            Back
+          </button>
+        </NavLeft>
+        <NavTitle>Dynamic Route</NavTitle>
+      </Navbar>
       <Block strong inset>
         <ul>
           <li>
@@ -43,7 +52,7 @@ const DynamicRoutePage = (props) => {
         </ul>
       </Block>
       <Block strong inset>
-        <Link onClick={() => f7router.back()}>Go back via Router API</Link>
+        <Link onClick={back}>Go back via Router API</Link>
       </Block>
     </Page>
   );
