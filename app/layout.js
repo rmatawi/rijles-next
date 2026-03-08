@@ -2,6 +2,7 @@ import "./globals.css";
 import Script from "next/script";
 import { headers } from "next/headers";
 import { getSeoConfig, resolveSiteUrl } from "./_lib/seoConfig";
+import ServiceWorkerRegistration from "./_components/ServiceWorkerRegistration";
 
 export async function generateMetadata() {
   const headersList = await headers();
@@ -86,6 +87,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="nl">
       <body>
+        <ServiceWorkerRegistration />
         {shouldLoadAdsense ? (
           <Script
             async

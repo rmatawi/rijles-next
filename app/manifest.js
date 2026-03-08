@@ -1,0 +1,60 @@
+export default function manifest() {
+  return {
+    id: "/",
+    name: "Rijklaar",
+    short_name: "Rijklaar",
+    description: "Rijklaar - Leer rijden in Suriname",
+    lang: "en-US",
+    start_url: "/",
+    scope: "/",
+    display: "standalone",
+    background_color: "#007aff",
+    theme_color: "#007aff",
+    icons: [
+      {
+        src: "/icons/128x128.png",
+        sizes: "128x128",
+        type: "image/png",
+      },
+      {
+        src: "/icons/144x144.png",
+        sizes: "144x144",
+        type: "image/png",
+      },
+      {
+        src: "/icons/152x152.png",
+        sizes: "152x152",
+        type: "image/png",
+      },
+      {
+        src: "/icons/192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        src: "/icons/256x256.png",
+        sizes: "256x256",
+        type: "image/png",
+      },
+      {
+        src: "/icons/512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
+    ],
+    capture_links: "new-client",
+    launch_handler: {
+      client_mode: "navigate-existing",
+    },
+    share_target: {
+      action: "/",
+      method: "GET",
+      enctype: "application/x-www-form-urlencoded",
+      params: {
+        title: "title",
+        text: "text",
+        url: "url",
+      },
+    },
+  };
+}

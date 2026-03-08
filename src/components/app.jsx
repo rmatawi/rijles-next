@@ -254,8 +254,8 @@ const MyApp = () => {
 
     // App store
     store: store,
-    // Register service worker (only on production build)
-    serviceWorker: {},
+    // Register service worker from the app root path
+    serviceWorker: { path: "/sw.js" },
 
     // Custom layout configuration
     layout: {
