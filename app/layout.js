@@ -1,76 +1,49 @@
 import "./globals.css";
 import Script from "next/script";
+import { headers } from "next/headers";
+import { getSeoConfig, resolveSiteUrl } from "./_lib/seoConfig";
 
-const canonicalUrl =
-  process.env.VITE_SEO_CANONICAL_URL || "http://localhost:4000";
-const businessName = process.env.VITE_SEO_BUSINESS_NAME || "Rijles";
-const description =
-  process.env.VITE_SEO_DESCRIPTION || "Rijles app migration to Next.js";
-const ogImage = process.env.VITE_SEO_OG_IMAGE || "/icons/apple-touch-icon.png";
-const seoTitle = process.env.VITE_SEO_TITLE || "Rijles";
-const ogTitle = process.env.VITE_SEO_OG_TITLE || seoTitle;
+export async function generateMetadata() {
+  const headersList = await headers();
+  const siteUrl = resolveSiteUrl(headersList);
+  const seoConfig = getSeoConfig(siteUrl);
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "AutoSchool",
-  name: businessName,
-  description,
-  url: canonicalUrl,
-  logo: process.env.VITE_SEO_LOGO_URL || undefined,
-  image: ogImage,
-  telephone: process.env.VITE_SEO_PHONE || undefined,
-  email: process.env.VITE_SEO_EMAIL || undefined,
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: process.env.VITE_SEO_ADDRESS_LOCALITY || undefined,
-    addressCountry: process.env.VITE_SEO_ADDRESS_COUNTRY || undefined,
-  },
-  areaServed: {
-    "@type": "City",
-    name: process.env.VITE_SEO_ADDRESS_LOCALITY || undefined,
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: process.env.VITE_SEO_RATING_VALUE || undefined,
-    reviewCount: process.env.VITE_SEO_REVIEW_COUNT || undefined,
-  },
-};
-
-export const metadata = {
-  metadataBase: new URL(canonicalUrl),
-  title: seoTitle,
-  description,
-  keywords: process.env.VITE_SEO_KEYWORDS || undefined,
-  alternates: {
-    canonical: canonicalUrl,
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  openGraph: {
-    title: ogTitle,
-    description,
-    url: canonicalUrl,
-    type: "website",
-    images: [ogImage],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: ogTitle,
-    description,
-    images: [ogImage],
-  },
-  verification: {
-    google: process.env.VITE_GOOGLE_SITE_VERIFICATION || undefined,
-  },
-  authors: process.env.VITE_SEO_BUSINESS_NAME
-    ? [{ name: process.env.VITE_SEO_BUSINESS_NAME }]
-    : undefined,
-  other: {
-    "google-adsense-account": "ca-pub-2987900572749814",
-  },
-};
+  return {
+    metadataBase: new URL(siteUrl),
+    title: seoConfig.baseTitle,
+    description: seoConfig.description,
+    keywords: seoConfig.keywords || undefined,
+    alternates: {
+      canonical: "/",
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    openGraph: {
+      title: seoConfig.ogTitle,
+      description: seoConfig.description,
+      url: siteUrl,
+      type: "website",
+      images: [seoConfig.ogImage],
+      siteName: seoConfig.baseTitle,
+      locale: "nl_SR",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: seoConfig.ogTitle,
+      description: seoConfig.description,
+      images: [seoConfig.ogImage],
+    },
+    verification: {
+      google: seoConfig.googleVerification || undefined,
+    },
+    authors: seoConfig.businessName ? [{ name: seoConfig.businessName }] : undefined,
+    other: {
+      "google-adsense-account": "ca-pub-2987900572749814",
+    },
+  };
+}
 
 export const viewport = {
   width: "device-width",
@@ -79,7 +52,36 @@ export const viewport = {
   themeColor: "#212121",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const headersList = await headers();
+  const siteUrl = resolveSiteUrl(headersList);
+  const seoConfig = getSeoConfig(siteUrl);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "AutoSchool",
+    name: seoConfig.businessName,
+    description: seoConfig.description,
+    url: seoConfig.siteUrl,
+    logo: seoConfig.logoUrl || undefined,
+    image: seoConfig.ogImage,
+    telephone: seoConfig.phone || undefined,
+    email: seoConfig.email || undefined,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: seoConfig.addressLocality || undefined,
+      addressCountry: seoConfig.addressCountry || undefined,
+    },
+    areaServed: {
+      "@type": "City",
+      name: seoConfig.addressLocality || undefined,
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: seoConfig.ratingValue || undefined,
+      reviewCount: seoConfig.reviewCount || undefined,
+    },
+  };
+
   return (
     <html lang="nl">
       <body>

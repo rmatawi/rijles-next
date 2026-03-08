@@ -1,12 +1,6 @@
-const baseTitle = process.env.VITE_SEO_TITLE || "Rijschool";
-const baseDescription =
-  process.env.VITE_SEO_DESCRIPTION ||
-  "Rijschool - Professionele Rijinstructeurs.";
-const baseUrl = process.env.VITE_SEO_CANONICAL_URL || "http://localhost:4000";
-const defaultImage =
-  process.env.VITE_SEO_OG_IMAGE || `${baseUrl}/icons/apple-touch-icon.png`;
+import { getSeoConfig } from "./seoConfig";
 
-const noIndexRoutes = new Set([
+export const noIndexRoutes = new Set([
   "auth",
   "student-login",
   "school-selection",
@@ -27,7 +21,7 @@ const noIndexRoutes = new Set([
   "ads-campaign",
 ]);
 
-const seoMap = {
+export const seoMap = {
   home: {
     title: "Rijles Suriname",
     description:
@@ -272,17 +266,30 @@ const seoMap = {
   },
 };
 
-const toAbsolute = (path = "/") => {
+const toAbsolute = (path = "/", siteUrl) => {
   if (path.startsWith("http")) return path;
-  return `${baseUrl.replace(/\/$/, "")}/${path.replace(/^\//, "")}`;
+  const normalizedSite = siteUrl.replace(/\/$/, "");
+  return `${normalizedSite}/${path.replace(/^\//, "")}`;
 };
 
-export function getRouteMetadata(pageKey, pathFallback = "/") {
+export const getIndexablePaths = () => {
+  const paths = new Set(["/"]);
+
+  Object.entries(seoMap).forEach(([pageKey, config]) => {
+    if (noIndexRoutes.has(pageKey)) return;
+    if (config?.url) paths.add(config.url);
+  });
+
+  return Array.from(paths);
+};
+
+export function getRouteMetadata(pageKey, pathFallback = "/", siteUrl) {
+  const seoConfig = getSeoConfig(siteUrl);
   const seo = seoMap[pageKey] || {};
-  const title = seo.title ? `${seo.title} | ${baseTitle}` : baseTitle;
-  const description = seo.description || baseDescription;
+  const title = seo.title ? `${seo.title} | ${seoConfig.baseTitle}` : seoConfig.baseTitle;
+  const description = seo.description || seoConfig.description;
   const canonicalPath = seo.url || pathFallback;
-  const canonicalUrl = toAbsolute(canonicalPath);
+  const canonicalUrl = toAbsolute(canonicalPath, seoConfig.siteUrl);
   const noindex = noIndexRoutes.has(pageKey);
 
   return {
@@ -299,15 +306,15 @@ export function getRouteMetadata(pageKey, pathFallback = "/") {
       description,
       url: canonicalUrl,
       type: "website",
-      images: [defaultImage],
-      siteName: baseTitle,
+      images: [seoConfig.ogImage],
+      siteName: seoConfig.baseTitle,
       locale: "nl_SR",
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [defaultImage],
+      images: [seoConfig.ogImage],
     },
   };
 }
