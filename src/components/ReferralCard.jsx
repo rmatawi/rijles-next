@@ -1,11 +1,11 @@
 import React from 'react';
 import { IonIcon } from '@ionic/react';
 import { giftOutline } from 'ionicons/icons';
-import { f7 } from 'framework7-react';
 import { useAdminStatus } from '../contexts/AdminStatusContext';
 import { useStudentStatus } from '../contexts/StudentStatusContext';
 import store from '../js/store';
 import { isSuperAdmin } from '../js/utils';
+import useAppNavigation from "../hooks/useAppNavigation";
 
 /**
  * Reusable ReferralCard component for "Verwijs & Verdien" functionality
@@ -23,6 +23,7 @@ const ReferralCard = ({
   style = {},
   className = ''
 }) => {
+  const { navigate } = useAppNavigation();
   const { isAdmin } = useAdminStatus();
   const { isStudent } = useStudentStatus();
 
@@ -46,7 +47,7 @@ const ReferralCard = ({
   }
   const handleClick = () => {
     if (typeof onClick === 'string') {
-      f7.views.main.router.navigate(onClick);
+      navigate(onClick);
     } else if (typeof onClick === 'function') {
       onClick();
     }

@@ -15,6 +15,7 @@ import { IonIcon } from "@ionic/react";
 import { shareSocial, qrCode, schoolOutline, shareOutline } from "ionicons/icons";
 import { QRCodeSVG } from "qrcode.react";
 import { openWhatsAppWithPhone } from "../../services/adminContactService";
+import useAppNavigation from "../../hooks/useAppNavigation";
 
 const HomePageActions = ({
   drivingSchool,
@@ -24,7 +25,9 @@ const HomePageActions = ({
   handleShowQRCode,
   generateAndSendAccessToken,
   sendStudentLoginCredentialsViaWhatsApp,
-}) => {
+} ) => {
+  const { navigate } = useAppNavigation();
+
   const handleThemeChange = (theme) => {
     // Save to localStorage for persistence
     localStorage.setItem("mode", theme);
@@ -134,7 +137,7 @@ const HomePageActions = ({
             📣 Delen via Social Media
           </ActionsButton>
           {isAdminStatus && (
-            <ActionsButton onClick={() => f7.views.main.router.navigate("/campaign/")}>
+            <ActionsButton onClick={() => navigate("/campaign/")}>
               📣 Advertenties
             </ActionsButton>
           )}
@@ -206,6 +209,8 @@ const HomePageActions = ({
 };
 
 export default HomePageActions;
+
+
 
 
 

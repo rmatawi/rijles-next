@@ -19,8 +19,10 @@ import { studentService } from "../services/studentService";
 import { schoolService } from "../services/schoolService";
 import { studentSchoolService } from "../services/studentSchoolService";
 import { accessTokenService } from "../services/accessTokenService";
+import useAppNavigation from "../hooks/useAppNavigation";
 
 const StudentAccessRegistrationPage = () => {
+  const { navigate } = useAppNavigation();
   const [studentData, setStudentData] = useState({
     firstName: "",
     lastName: "",
@@ -213,7 +215,7 @@ const StudentAccessRegistrationPage = () => {
 
       // Redirect to home page after a short delay
       setTimeout(() => {
-        f7.views.main.router.navigate("/", {
+        navigate("/", {
           reloadCurrent: true,
         });
 

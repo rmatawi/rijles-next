@@ -4,12 +4,15 @@
 import { useEffect } from "react";
 import { f7 } from "framework7-react";
 import { shareUrlService } from "../services/shareUrlService";
+import useAppNavigation from "./useAppNavigation";
 
 /**
  * Custom hook for detecting and handling short share URLs
  * Detects URLs like ?share=abc12345 and redirects to full URLs with school and admin_id parameters
  */
 export const useShareUrlHandler = () => {
+  const { navigate } = useAppNavigation();
+
   useEffect(() => {
     const handleShareUrl = async () => {
       const urlParams = new URLSearchParams(window.location.search);
@@ -69,17 +72,10 @@ export const useShareUrlHandler = () => {
           console.log("[Share URL] Redirecting to:", newUrl);
 
           const performNavigation = () => {
-            // Use Framework7 router to navigate
-            if (f7 && f7.views && f7.views.main) {
-              f7.views.main.router.navigate(newUrl, {
-                reloadCurrent: true,
-                ignoreCache: true,
-              });
-            } else {
-              // Fallback: update browser URL and reload
-              window.history.replaceState({}, "", newUrl);
-              window.location.reload();
-            }
+            navigate(newUrl, {
+              reloadCurrent: true,
+              ignoreCache: true,
+            });
           };
 
           // Debug mode for localhost: show modal before redirecting
@@ -122,7 +118,7 @@ export const useShareUrlHandler = () => {
     return () => {
       window.removeEventListener("popstate", handlePopState);
     };
-  }, []);
+  }, [navigate]);
 
   return null;
 };

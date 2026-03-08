@@ -11,9 +11,11 @@ import {
 } from "framework7-react";
 import { SUPABASE_CONFIG } from "../services/supabase";
 import { useI18n } from "../i18n/i18n";
+import useAppNavigation from "../hooks/useAppNavigation";
 
 const SchoolAccessRequest = () => {
   const { t } = useI18n();
+  const { navigate } = useAppNavigation();
   const [schoolName, setSchoolName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -283,7 +285,7 @@ const SchoolAccessRequest = () => {
         // Show alert and redirect to home page
         f7.dialog.alert("School is already in the admin's list", "Info", () => {
           // Navigate back to home page
-          f7.views.main.router.navigate("/");
+          navigate("/");
         });
         return;
       }
@@ -320,7 +322,7 @@ const SchoolAccessRequest = () => {
       // Show success dialog and navigate after it's closed
       f7.dialog.alert("School access approved successfully!", "Success", () => {
         // Navigate back to home page after successful approval
-        f7.views.main.router.navigate("/");
+        navigate("/");
       });
     } catch (error) {
       console.error("Error approving request:", error);

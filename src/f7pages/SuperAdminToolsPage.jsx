@@ -6,11 +6,11 @@ import {
   NavTitle,
   Block,
   Icon,
-  f7,
   useStore,
 } from "framework7-react";
 import NavHomeButton from "../components/NavHomeButton";
 import { isSuperAdmin } from "../js/utils";
+import useAppNavigation from "../hooks/useAppNavigation";
 
 const TOOL_LINKS = [
   {
@@ -64,6 +64,7 @@ const TOOL_LINKS = [
 ];
 
 const SuperAdminToolsPage = () => {
+  const { navigate } = useAppNavigation();
   const authUser = useStore("authUser");
   const canAccess = isSuperAdmin(authUser?.email);
 
@@ -165,7 +166,7 @@ const SuperAdminToolsPage = () => {
               key={item.url}
               className="superadmin-tool-tile"
               onClick={() => {
-                f7.views.main.router.navigate(item.url);
+                navigate(item.url);
               }}
             >
               <div className="superadmin-tool-icon">

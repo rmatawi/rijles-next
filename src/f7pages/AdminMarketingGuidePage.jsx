@@ -13,8 +13,10 @@ import { IonIcon } from "@ionic/react";
 import { useStore } from "framework7-react";
 import { isAdminUser } from "../js/utils";
 import { openStudentAccessGrantDialog } from "../services/studentAccessGrantService";
+import useAppNavigation from "../hooks/useAppNavigation";
 
 const AdminMarketingGuidePage = () => {
+  const { navigate } = useAppNavigation();
   const authUser = useStore("authUser");
   const isAdmin = isAdminUser(authUser);
 
@@ -52,9 +54,7 @@ const AdminMarketingGuidePage = () => {
                 <Link
                   className="inline-link"
                   onClick={() => {
-                    f7.views.main.router.navigate(
-                      "/registration-requirements",
-                    );
+                    navigate("/registration-requirements");
                   }}
                 >
                   Inschrijfvoorwaarden
@@ -108,7 +108,7 @@ const AdminMarketingGuidePage = () => {
                   <Link
                     className="inline-link"
                     onClick={() => {
-                      f7.views.main.router.navigate("/campaign");
+                      navigate("/campaign");
                     }}
                   >
                     Campagne
@@ -117,7 +117,7 @@ const AdminMarketingGuidePage = () => {
                   <Link
                     className="inline-link"
                     onClick={() => {
-                      f7.views.main.router.navigate("/campaign-fresh");
+                      navigate("/campaign-fresh");
                     }}
                   >
                     Campagne Fresh
@@ -151,7 +151,7 @@ const AdminMarketingGuidePage = () => {
                   <Link
                     className="inline-link"
                     onClick={() => {
-                      f7.views.main.router.navigate("/admin-profile");
+                      navigate("/admin-profile");
                     }}
                   >
                     admin dashboard

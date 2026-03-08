@@ -1,13 +1,15 @@
 import React from "react";
-import { f7 } from "framework7-react";
 import { getLayout } from "../js/utils";
+import useAppNavigation from "../hooks/useAppNavigation";
 
 const FreeTrialSignupPromo = ({
   title = "Probeer 1 Dag Gratis!",
   description = "Start vandaag met leren voor je rijexamen. Krijg direct toegang tot alle verkeersborden en meer.",
   buttonText = "Begin Gratis Proefdag",
-  onButtonClick = () => f7.views.main.router.navigate("/free-trial-signup/")
+  onButtonClick,
 }) => {
+  const { navigate } = useAppNavigation();
+  const handleButtonClick = onButtonClick || (() => navigate("/free-trial-signup/"));
   const colorScheme = getLayout()?.colorScheme;
   // Use the first and third colors from the env color scheme for the gradient (like CampaignPage)
   const envGradientColor1 = colorScheme?.[0] || "#667eea";
@@ -70,7 +72,7 @@ const FreeTrialSignupPromo = ({
           gap: "8px",
           cursor: "pointer",
         }}
-        onClick={onButtonClick}
+        onClick={handleButtonClick}
       >
         <i className="f7-icons" style={{ fontSize: "20px" }}>
           arrow_right_circle_fill

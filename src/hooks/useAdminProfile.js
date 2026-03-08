@@ -17,6 +17,7 @@ import {
 } from "../js/utils";
 import { buildAbsolutePageUrl } from "../utils/appUrl";
 import { normalizePhoneForWhatsApp } from "../services/adminContactService";
+import useAppNavigation from "./useAppNavigation";
 
 const escapeHtml = (value) =>
   String(value ?? "")
@@ -101,6 +102,7 @@ const buildWhatsAppUrl = ({ phone, message = "" } = {}) => {
 };
 
 const useAdminProfile = () => {
+  const { navigate } = useAppNavigation();
   const [profile, setProfile] = useState({
     id: null,
     name: "",
@@ -139,12 +141,12 @@ const useAdminProfile = () => {
     // Store a key/value in localStorage to indicate admin login attempt
     localStorage.setItem("adminLoginAttempt", "true");
     // Redirect to the auth page for sign in
-    f7.views.main.router.navigate("/auth");
+    navigate("/auth");
   };
 
   const handleSignUp = async () => {
     // Redirect to the auth page for sign up (same page handles both)
-    f7.views.main.router.navigate("/auth");
+    navigate("/auth");
   };
 
   const handleSignOut = async () => {

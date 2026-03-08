@@ -13,9 +13,11 @@ import {
 import { authService } from '../services';
 import store from '../js/store';
 import { useI18n } from '../i18n/i18n';
+import useAppNavigation from "../hooks/useAppNavigation";
 
 const AuthPage = () => {
   const { t } = useI18n();
+  const { navigate } = useAppNavigation();
   const [drivingSchoolName, setDrivingSchoolName] = useState("Rijles App");
   
   // Get driving school name from localStorage
@@ -54,7 +56,7 @@ const AuthPage = () => {
   };
 
   const handleManualRedirect = () => {
-    f7.views.main.router.navigate('/');
+    navigate("/");
   };
 
   // Show loading state while checking auth status

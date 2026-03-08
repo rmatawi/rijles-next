@@ -23,6 +23,7 @@ import {
   checkmarkCircle,
 } from "ionicons/icons";
 import { referralService } from "../services/referralService";
+import useAppNavigation from "../hooks/useAppNavigation";
 
 /**
  * ReferralDashboard Component
@@ -33,6 +34,7 @@ import { referralService } from "../services/referralService";
  * - Leaderboard position
  */
 const ReferralDashboard = ({ studentId, schoolId, schoolName }) => {
+  const { navigate } = useAppNavigation();
   const [loading, setLoading] = useState(true);
   const [referralCode, setReferralCode] = useState("");
   const [stats, setStats] = useState(null);
@@ -393,11 +395,7 @@ const ReferralDashboard = ({ studentId, schoolId, schoolName }) => {
                   <Button
                     small
                     outline
-                    onClick={() =>
-                      f7.views.main.router.navigate(
-                        "/referral-leaderboard",
-                      )
-                    }
+                    onClick={() => navigate("/referral-leaderboard")}
                   >
                     View All
                   </Button>
@@ -432,9 +430,7 @@ const ReferralDashboard = ({ studentId, schoolId, schoolName }) => {
               <Button
                 small
                 outline
-                onClick={() =>
-                  f7.views.main.router.navigate("/referral-rewards")
-                }
+                onClick={() => navigate("/referral-rewards")}
               >
                 View All Rewards
               </Button>

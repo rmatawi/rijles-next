@@ -3,12 +3,15 @@
 
 import { useEffect } from 'react';
 import { f7 } from 'framework7-react';
+import useAppNavigation from "./useAppNavigation";
 
 /**
  * Custom hook for handling deep links when PWA is opened from external links
  * This handles the scenario where a user clicks a link and it should open in the installed PWA
  */
 export const useDeepLinking = () => {
+  const { navigate } = useAppNavigation();
+
   useEffect(() => {
     // Handle the initial load - check if opened with URL parameters
     const handleInitialUrl = () => {
@@ -52,12 +55,10 @@ export const useDeepLinking = () => {
             const page = params.get('page');
 
             if (page) {
-              if (f7 && f7.views && f7.views.main) {
-                f7.views.main.router.navigate(`/?${url.search}`, {
-                  reloadCurrent: true,
-                  ignoreCache: true
-                });
-              }
+              navigate(`/?${url.search}`, {
+                reloadCurrent: true,
+                ignoreCache: true
+              });
             }
           }
         }
@@ -85,7 +86,7 @@ export const useDeepLinking = () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('navigation-event', handleNavigationEvent);
     };
-  }, []);
+  }, [navigate]);
 
   return {
     // Could return utility functions if needed

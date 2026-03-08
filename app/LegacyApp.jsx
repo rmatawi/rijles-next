@@ -8,7 +8,9 @@ import "skeleton-elements/css";
 import "../src/css/icons.css";
 import "../src/css/app.css";
 
-Framework7.use(Framework7React);
+if (typeof window !== "undefined") {
+  Framework7["use"](Framework7React);
+}
 
 export default function LegacyApp() {
   return <MyApp />;

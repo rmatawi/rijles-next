@@ -13,8 +13,10 @@ import { schoolService } from "../services/schoolService";
 import { adminService } from "../services/adminService";
 import { useAdminStatus } from "../contexts/AdminStatusContext";
 import { isSuperAdmin } from "../js/utils";
+import useAppNavigation from "../hooks/useAppNavigation";
 
 const AdminAccessPage = () => {
+  const { navigate } = useAppNavigation();
   const authUser = useStore("authUser");
   const [user, setUser] = useState(null);
   const [targetEmail, setTargetEmail] = useState("");
@@ -228,7 +230,7 @@ const AdminAccessPage = () => {
               text: "OK",
               color: "blue",
               onClick: () => {
-                f7.views.main.router.navigate("/", { reloadAll: true });
+                navigate("/", { reloadAll: true });
               },
             },
           ],
@@ -285,7 +287,7 @@ const AdminAccessPage = () => {
 
       // Wait a moment before redirecting
       setTimeout(() => {
-        f7.views.main.router.navigate("/admin-profile", {
+        navigate("/admin-profile", {
           reloadAll: true,
         });
       }, 1500);

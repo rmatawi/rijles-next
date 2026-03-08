@@ -2,14 +2,15 @@
 // Default skin-specific LearningModulesGrid component
 // Features: Classic neumorphic design with CSS classes
 
-import { f7 } from "framework7-react";
 import { IonIcon } from "@ionic/react";
 import { car, helpCircle, warning, play, school } from "ionicons/icons";
 import { getLayout } from "../../../../js/utils";
 import { createGradient } from "../../../../utils/colorUtils";
 import { defaultStyles } from "./styles";
+import useAppNavigation from "../../../../hooks/useAppNavigation";
 
 const LearningModulesGrid = () => {
+  const { navigate } = useAppNavigation();
   const layout = getLayout();
   const colorScheme = layout?.colorScheme || [
     "#1A73E8", // Primary Blue
@@ -67,7 +68,7 @@ const LearningModulesGrid = () => {
           <div
             key={index}
             className={`neu-module animate-scale-in ${item.delay}`}
-            onClick={() => f7.views.main.router.navigate(item.link)}
+            onClick={() => navigate(item.link)}
             style={defaultStyles.neuModule}
           >
             <div

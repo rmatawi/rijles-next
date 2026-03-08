@@ -33,6 +33,7 @@ import {
   openAdminWhatsAppContact,
 } from "../services/adminContactService";
 import { buildAbsolutePageUrl, buildPagePath } from "../utils/appUrl";
+import useAppNavigation from "../hooks/useAppNavigation";
 
 const MaquetteDisplay = ({
   getLayout,
@@ -56,6 +57,7 @@ const MaquetteDisplay = ({
   onCriteriaShow = null,
   showCardFooter = true,
 }) => {
+  const { navigate } = useAppNavigation();
   const { t } = useI18n();
   const [answer, setanswer] = useState(initialanswer);
   const [showAnswer, setShowAnswer] = useState(mode === "study"); // Show answer by default in study mode
@@ -581,9 +583,7 @@ const MaquetteDisplay = ({
               color: "green",
               onClick: () => {
                 // Navigate to the single maquette page with the maquette ID
-                f7.views.main.router.navigate(
-                  buildPagePath("single-maquette", { id: maquetteId })
-                );
+                navigate(buildPagePath("single-maquette", { id: maquetteId }));
               },
             },
           ],

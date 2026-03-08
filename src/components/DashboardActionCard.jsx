@@ -1,6 +1,6 @@
 import React from "react";
 import { IonIcon } from "@ionic/react";
-import { f7 } from "framework7-react";
+import useAppNavigation from "../hooks/useAppNavigation";
 
 /**
  * Reusable DashboardActionCard component for horizontal action cards
@@ -32,9 +32,11 @@ const DashboardActionCard = ({
   iconBackground = "rgba(255, 255, 255, 0.3)",
   showChevron = true,
 }) => {
+  const { navigate } = useAppNavigation();
+
   const handleClick = () => {
     if (typeof onClick === "string") {
-      f7.views.main.router.navigate(onClick);
+      navigate(onClick);
     } else if (typeof onClick === "function") {
       onClick();
     }

@@ -22,9 +22,11 @@ import {
 } from "../services";
 import { useI18n } from "../i18n/i18n";
 import { isSuperAdmin } from "../js/utils";
+import useAppNavigation from "../hooks/useAppNavigation";
 
 const AdminRequestPage = ({ f7route }) => {
   const { t } = useI18n();
+  const { navigate, back } = useAppNavigation();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -138,14 +140,14 @@ const AdminRequestPage = ({ f7route }) => {
         }
       } catch (error) {
         console.error("Error checking auth:", error);
-        f7.views.main.router.navigate("/auth");
+        navigate("/auth");
       } finally {
         setLoading(false);
       }
     };
 
     checkAuth();
-  }, []);
+  }, [navigate]);
 
   const fetchAdminRequests = async () => {
     try {
@@ -588,7 +590,7 @@ const AdminRequestPage = ({ f7route }) => {
   };
 
   const handleBack = () => {
-    f7.views.main.router.back();
+    back();
   };
 
   if (loading) {

@@ -1,6 +1,7 @@
 // components/app.jsx - Refactored version
 import { useState, useEffect } from "react";
 import { App, View, f7ready, f7 } from "framework7-react";
+import { usePathname, useSearchParams } from "next/navigation";
 import ReactGA from "react-ga4";
 import { HelmetProvider } from "react-helmet-async";
 
@@ -132,6 +133,8 @@ const MyApp = () => {
   useDeepLinking(); // Handle deep links when PWA is opened from external links
   useShortUrlHandler(); // Handle short URL detection and redirection for maquettes (?id=abc12345)
   useShareUrlHandler(); // Handle short URL detection and redirection for school sharing (?share=abc12345)
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   // Use student data hook with auth info
   const { authUser, isAuthenticated } = store.state || {
@@ -261,20 +264,10 @@ const MyApp = () => {
   );
 
   useEffect(() => {
-    const syncActiveUrl = () => {
+    if (typeof window !== "undefined") {
       setActiveUrl(getNormalizedLocationUrl());
-    };
-
-    // Set the initial active URL based on current location (including hybrid path support)
-    syncActiveUrl();
-
-    // Listen for popstate events to handle browser back/forward buttons
-    window.addEventListener("popstate", syncActiveUrl);
-
-    return () => {
-      window.removeEventListener("popstate", syncActiveUrl);
-    };
-  }, []);
+    }
+  }, [pathname, searchParams]);
 
   useEffect(() => {
     updateRobotsForRoute(activeUrl);

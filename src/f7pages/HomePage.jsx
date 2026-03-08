@@ -48,6 +48,7 @@ import { importSkinComponent } from "../utils/skinUtils";
 import { getAdminAccessWhatsAppNumber } from "../utils/contactTargets";
 import { buildAbsolutePageUrl } from "../utils/appUrl";
 import { SEO } from "../js/seoUtils";
+import useAppNavigation from "../hooks/useAppNavigation";
 
 // Import Sheet Components
 import RegisterSheet from "../components/RegisterSheet";
@@ -148,6 +149,7 @@ const LearningModulesGridSkeleton = () => (
 
 const HomePage = () => {
   const IMAGEKIT_PUBLICKEY = process.env.VITE_REACT_APP_IMAGEKIT_PUBLICKEY;
+  const { navigate } = useAppNavigation();
   const userName = useStore("userName");
   const authUser = useStore("authUser");
   const { isAdmin: isAdminStatus, canManageCurrentSchool } = useAdminStatus();
@@ -624,7 +626,7 @@ const HomePage = () => {
             localStorage.setItem("accessSchoolId", result.school_id);
             localStorage.setItem("accessToken", accessToken);
             localStorage.setItem("isAccessToken", "true");
-            f7.views.main.router.navigate("/student-access-registration");
+            navigate("/student-access-registration");
           } else {
             f7.dialog.alert(result.message, "Access Token Error");
           }
@@ -644,7 +646,7 @@ const HomePage = () => {
             localStorage.setItem("inviteToken", inviteToken);
             localStorage.setItem("inviteAdminId", result.admin_id);
             localStorage.setItem("isInvite", "true");
-            f7.views.main.router.navigate("/student-login");
+            navigate("/student-login");
           } else {
             f7.dialog.alert(result.message, "Invite Error");
           }
@@ -670,7 +672,7 @@ const HomePage = () => {
 
       checkAuthState();
     }
-  }, [userType, authUser]);
+  }, [userType, authUser, navigate]);
 
   // Token validation functions
   const validateAccessToken = async (token) => {
@@ -953,7 +955,7 @@ const HomePage = () => {
 
   const handleCardClick = (link) => {
     f7.sheet.close();
-    setTimeout(() => f7.views.main.router.navigate(link), 500);
+    setTimeout(() => navigate(link), 500);
   };
 
   const generateAndSendAccessToken = async () => {
@@ -1115,7 +1117,7 @@ const HomePage = () => {
                   )
                     ? "/admin-profile"
                     : "/profile";
-                  f7.views.main.router.navigate(profilePage);
+                  navigate(profilePage);
                 }}
               >
                 <Icon f7="person_circle" style={{ fontSize: "18px" }} />

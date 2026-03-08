@@ -4,12 +4,15 @@
 import { useEffect } from "react";
 import { f7 } from "framework7-react";
 import { shortUrlService } from "../services/shortUrlService";
+import useAppNavigation from "./useAppNavigation";
 
 /**
  * Custom hook for detecting and handling short URLs
  * Detects URLs like ?id=abc12345 and redirects to /single-maquette?id={full-uuid}
  */
 export const useShortUrlHandler = () => {
+  const { navigate } = useAppNavigation();
+
   useEffect(() => {
     const handleShortUrl = async () => {
       const urlParams = new URLSearchParams(window.location.search);
@@ -58,17 +61,10 @@ export const useShortUrlHandler = () => {
               : "/single-maquette";
             console.log("[Short URL] Redirecting to:", newUrl);
 
-            // Use Framework7 router to navigate
-            if (f7 && f7.views && f7.views.main) {
-              f7.views.main.router.navigate(newUrl, {
-                reloadCurrent: true,
-                ignoreCache: true,
-              });
-            } else {
-              // Fallback: update browser URL and reload
-              window.history.replaceState({}, "", newUrl);
-              window.location.reload();
-            }
+            navigate(newUrl, {
+              reloadCurrent: true,
+              ignoreCache: true,
+            });
           } catch (err) {
             console.error("[Short URL] Error processing short URL:", err);
 
@@ -98,7 +94,7 @@ export const useShortUrlHandler = () => {
     return () => {
       window.removeEventListener("popstate", handlePopState);
     };
-  }, []);
+  }, [navigate]);
 
   return null;
 };

@@ -2,14 +2,15 @@
 // Rayer skin-specific LearningModulesGrid component
 // Features: Modern medical UI design with glass effects and subtle gradients
 
-import { f7 } from "framework7-react";
 import { IonIcon } from "@ionic/react";
 import { car, helpCircle, warning, play, school } from "ionicons/icons";
 import { getLayout } from "../../../../js/utils";
 import { createGradient } from "../../../../utils/colorUtils";
 import { rayerStyles } from "./styles";
+import useAppNavigation from "../../../../hooks/useAppNavigation";
 
 const LearningModulesGrid = () => {
+  const { navigate } = useAppNavigation();
   const layout = getLayout();
   const colorScheme = layout?.colorScheme || [
     "#1A73E8", // Primary Blue
@@ -70,7 +71,7 @@ const LearningModulesGrid = () => {
           <div
             key={index}
             className={`animate-scale-in ${item.delay}`}
-            onClick={() => f7.views.main.router.navigate(item.link)}
+            onClick={() => navigate(item.link)}
             style={rayerStyles.moduleItem}
           >
             <div

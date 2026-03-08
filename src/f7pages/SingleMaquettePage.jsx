@@ -39,8 +39,10 @@ import {
   resolveActiveAdminContact,
 } from "../services/adminContactService";
 import { buildAbsolutePageUrl } from "../utils/appUrl";
+import useAppNavigation from "../hooks/useAppNavigation";
 
 const SingleMaquettePage = () => {
+  const { navigate } = useAppNavigation();
   const debugLog = () => {};
   const [showAnswer, setShowAnswer] = useState(false);
   const [maquette, setMaquette] = useState(null);
@@ -1190,7 +1192,7 @@ const SingleMaquettePage = () => {
             <div
               className="neu-btn-circle"
               style={{ width: "36px", height: "36px", cursor: "pointer" }}
-              onClick={() => f7.views.main.router.navigate("/maquette")}
+              onClick={() => navigate("/maquette")}
             >
               <Icon f7="arrow_left" style={{ fontSize: "20px" }} />
             </div>
@@ -1223,7 +1225,7 @@ const SingleMaquettePage = () => {
             <div
               className="neu-btn-circle"
               style={{ width: "36px", height: "36px", cursor: "pointer" }}
-              onClick={() => f7.views.main.router.navigate("/maquette")}
+              onClick={() => navigate("/maquette")}
             >
               <Icon f7="arrow_left" style={{ fontSize: "20px" }} />
             </div>
@@ -1251,7 +1253,7 @@ const SingleMaquettePage = () => {
           <div
             className="neu-btn-circle"
             style={{ width: "36px", height: "36px", cursor: "pointer" }}
-            onClick={() => f7.views.main.router.navigate("/maquette")}
+            onClick={() => navigate("/maquette")}
           >
             <Icon f7="arrow_left" style={{ fontSize: "20px" }} />
           </div>

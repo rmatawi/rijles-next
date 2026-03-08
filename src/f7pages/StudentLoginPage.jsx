@@ -17,8 +17,10 @@ import { schoolService } from "../services/schoolService";
 import { studentService } from "../services/studentService";
 import { studentSchoolService } from "../services/studentSchoolService";
 import { t } from "../i18n/translate";
+import useAppNavigation from "../hooks/useAppNavigation";
 
 const StudentLoginPage = () => {
+  const { navigate } = useAppNavigation();
   const [schoolName, setSchoolName] = useState("");
   const [loading, setLoading] = useState(true);
   const [phone, setPhone] = useState("");
@@ -219,7 +221,7 @@ const StudentLoginPage = () => {
         "Inloggen Gelukt",
         () => {
           // Navigate to homepage and reload to refresh student status
-          f7.views.main.router.navigate("/");
+          navigate("/");
           setTimeout(() => {
             window.location.reload();
           }, 500);
